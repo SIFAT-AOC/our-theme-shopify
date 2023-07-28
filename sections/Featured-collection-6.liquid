@@ -1,0 +1,267 @@
+
+<style>
+    .f-c-6-t{
+        text-align:center;
+      color:{{ section.settings.f-c-6-t-c-h }};
+              }.c-l-6-t-l-2, .c-l-6-t-r-2, .c-l-6-b-l-2, .c-l-6-b-r-2 h2, * h2 {
+    width: 100%;
+}
+            .fe-co-li-6-im-t h3{
+         text-overflow: ellipsis;
+         white-space: nowrap;
+         overflow: hidden;
+                
+            }
+            .fe-co-li-6-im-t h3,p{
+              display:inline;
+            }
+   .fe-co-li-6-im-t p{
+  text-decoration: line-through;
+    color: #ff2f00e3;
+  }
+  .f-c-l-6-pa{
+    padding: 30px;
+    background-color:{{section.settings.f-c-7-backgroundColour}};
+  }
+  .f-c-l-6-row2{
+    --bs-gutter-x: 0rem;
+    padding: 0px 1rem;
+  }
+  .f-c-l-6-row1{
+    --bs-gutter-x: 0.3rem;
+  }
+  .f-c-l-6-img{
+    height:165px;border: 1px solid {{ section.settings.f-c-7-borderColour }};
+  }
+      @media only screen and (max-width: 768px) {
+           /* Responsive layout for mobile devices */
+                .f-c-l-6-img{
+    height:130px;
+  }.fe-co-li-6-im-t h3{
+         text-overflow: ellipsis;
+         white-space: nowrap;
+         overflow: hidden;
+                
+            }
+      }
+         /* Tablet */
+         @media only screen and (min-width: 768px) and (max-width: 992px) {
+           /* Responsive layout for tablet devices */
+           .f-c-l-6-img{
+    height:200px;
+  }.fe-co-li-6-im-t h3{
+         text-overflow: ellipsis;
+         white-space: nowrap;
+         overflow: hidden;
+            }
+         }
+
+        
+ </style>
+
+{% comment %}  <div class="py-lg-5 py-md-4 py-3"> {% endcomment %}
+        <div class="container my-lg-5 my-3 my-md-4">
+           <h2 class="f-c-6-t my-3">{{ section.settings.f-c-6-t }} </h2>
+          <div class="row d-flex justify-content-between f-c-l-6-row1">
+            <div class="col-lg-4 col-12">
+              <h2 class=" my-3" style=" color:{{ section.settings.f-c-6-t-c-t-1 }};">{{ section.settings.f-c-l-6-h-1 }}</h2>
+               {% assign first_collection = collections[section.settings.f-c-l-6-c-1] %}
+              {% for product in first_collection.products limit: section.settings.f-c-l-6-p-l-1 %}
+                <div class="row my-4 d-flex justify-content-between f-c-l-6-row2">
+                  <div class="col-5">
+                    <div class="f-c-l-6-img">
+                      <img src="{{ product.featured_image | img_url: 'master' }}" class="w-100 h-100" alt="" srcset="">
+                    </div>
+                  </div>
+                  <div class="f-c-l-6-pa col-7">
+                    <div class="fe-co-li-6-im-t">
+                 <a href="{{  product.url}}">
+                        <h3 class="pb-2" style="margin: 0px;">{{ product.title }}</h3>
+        </a>
+                      <h3 class="pe-3">{{ product.price | money }}</h3>
+                      <p>{{ product.compare_at_price | money }}</p>
+                    </div>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+            <div class="col-lg-4 col-12">
+              <h2 class=" my-3"  style=" color:{{ section.settings.f-c-6-t-c-t-2 }};">{{ section.settings.f-c-l-6-h-2 }}</h2>
+               {% assign second_collection = collections[section.settings.f-c-l-6-c-2] %}
+              {% for product in second_collection.products limit: section.settings.f-c-l-6-p-l-2 %}
+                <div class="row my-4 d-flex justify-content-between f-c-l-6-row2">
+                  <div class="col-5">
+                    <div class="f-c-l-6-img">
+                      <img src="{{ product.featured_image | img_url: 'master' }}" class="w-100 h-100" alt="" srcset="">
+                    </div>
+                  </div>
+                  <div class="f-c-l-6-pa col-7">
+                    <div class="fe-co-li-6-im-t">
+                         <a href="{{  product.url}}">
+                        <h3 class="pb-2" style="margin: 0px;">{{ product.title }}</h3>
+        </a>
+                      <h3 class="pe-3">{{ product.price | money }}  </h3>
+                      <p>{{ product.compare_at_price | money }}</p>
+                    </div>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+            <div class="col-lg-4 col-12">
+              <h2 class=" my-3"  style=" color:{{ section.settings.f-c-6-t-c-t-3 }};">{{ section.settings.f-c-l-6-h-3 }}</h2>
+               {% assign third_collection = collections[section.settings.f-c-l-6-c-3] %}
+              {% for product in third_collection.products limit: section.settings.f-c-l-6-p-l-3 %}
+                <div class="row my-4 d-flex justify-content-between f-c-l-6-row2">
+                  <div class="col-5">
+                    <div class="f-c-l-6-img">
+                      <img src="{{ product.featured_image | img_url: 'master' }}"  class="w-100 h-100" alt="" srcset="">
+                    </div>
+                  </div>
+                  <div class="f-c-l-6-pa col-7">
+                    <div class="fe-co-li-6-im-t">
+                          <a href="{{  product.url}}">
+                        <h3 class="pb-2" style="margin: 0px;">{{ product.title }}</h3>
+        </a>
+                      <h3 class="pe-3">{{ product.price | money }}</h3>
+                      <p>{{ product.compare_at_price | money }}</p>
+                    </div>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+            
+           
+          </div>
+        </div>
+
+      
+{% schema %}
+  {
+    "name": "Fetured-collection-6",
+    "settings": [
+      {
+               "type":"text",
+               "id":"f-c-6-t",
+               "label":"add text",
+               "default":"Add Title Here"
+            },
+       {
+           "type": "color",
+           "id": "f-c-7-backgroundColour",
+           "label": "Section Background Color",
+           "default": "#f7f8f9"
+         },
+       {
+           "type": "color",
+           "id": "f-c-7-borderColour",
+           "label": "Division Border Color",
+           "default": "#e5e5e5"
+         },
+  {
+  "type": "color",
+  "id": "f-c-6-t-c-h",
+  "label": "Section Title ",
+  "default": "#000000"
+},
+      {
+  "type": "color",
+  "id": "f-c-6-t-c-t-1",
+  "label": "Title 1",
+  "default": "#000000"
+},
+      {
+  "type": "color",
+  "id": "f-c-6-t-c-t-2",
+  "label": "Title 2",
+  "default": "#000000"
+},
+      {
+  "type": "color",
+  "id": "f-c-6-t-c-t-3",
+  "label": "Title 3",
+  "default": "#000000"
+},
+    
+       {
+    "type":"text",
+      "id":"f-c-l-6-h-1",
+      "label":"1st_Heading",
+      "default":"Add Heading Text"
+    },
+       {
+    "type":"text",
+      "id":"f-c-l-6-h-2",
+      "label":"2nd_Heading",
+      "default":"Add Heading Text"
+    },
+       {
+    "type":"text",
+      "id":"f-c-l-6-h-3",
+      "label":"3rd_Heading",
+      "default":"Add Heading Text"
+    },
+       {
+      "type": "collection",
+      "id": "f-c-l-6-c-1",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "f-c-l-6-p-l-1",
+      "label": "Product Limit",
+      "default": 4,
+      "min": 1,
+      "max": 12,
+      "step": 1
+    },
+       {
+      "type": "collection",
+      "id": "f-c-l-6-c-2",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "f-c-l-6-p-l-2",
+      "label": "Product Limit",
+      "default": 4,
+      "min": 1,
+      "max": 12,
+      "step": 1
+    },
+       {
+      "type": "collection",
+      "id": "f-c-l-6-c-3",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "f-c-l-6-p-l-3",
+      "label": "Product Limit",
+      "default": 4,
+      "min": 1,
+      "max": 12,
+      "step": 1
+    }
+    ],
+    "presets":[
+      {
+         "name": "Fetured-collection-6",
+            "category": "Product",
+      "settings": {
+        "f-c-l-6-c-1": "all",
+        "f-c-l-6-c-2": "all",
+        "f-c-l-6-c-3": "all",
+        "f-c-l-6-p-l-1": 4,
+        "f-c-l-6-p-l-2": 4,
+        "f-c-l-6-p-l-3": 4
+      }
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

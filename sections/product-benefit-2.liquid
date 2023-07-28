@@ -1,0 +1,295 @@
+{% comment %} 
+css code is here
+{% endcomment %}
+<style>
+.imgSize{
+    height: 80px;
+    width: 80px;
+  background-color:white;
+}
+.featuresHeader1{
+  font-size: 5rem;
+    position: relative;
+ color:{{section.settings.featuretitle2}};
+}
+  .benefitTitleS1{
+     font-size: 1.9rem;
+     height:100%;
+    width:100%;
+  }
+  .content-detail{
+  margin-top:10px;
+  }
+  .mainContent2{
+    background-color:{{section.settings.features2Background}};
+    padding-top:10rem;
+    padding-bottom:10rem;
+    min-height:100vh;
+  }
+  .benefitDesCRI1{
+      height:100%;
+    width:100%;
+ font-size: 1.6rem;
+  }
+  .description1{
+      text-align:end;
+  }
+  .featureTitle1{
+    color:{{section.settings.featuretitle1}};
+  }
+  .first-column,.second-column{
+   display: grid;
+    grid-template-columns: repeat(1,1fr);
+  }
+  }
+@media all and (max-width: 768px) {
+    .rtxsize{
+        font-size: 1.5rem;
+    }
+  .featuresHeader1{
+  font-size: 3rem;
+    position: relative;
+}
+   .benefitTitleS1{
+     font-size: 1.4rem;
+     
+  }
+
+  .benefitDesCRI1{
+ font-size: 1.2rem;
+  }
+ 
+   .mainContent2{
+    background-color:#f8f8f8;
+    padding-top:4rem;
+    padding-bottom:4rem;
+  }
+}
+</style>
+{% comment %} 
+css code is end here
+{% endcomment %}
+
+{% comment %} 
+html code is start here
+{% endcomment %}
+
+ <section class=" mt-md-3 mt-2 mainContent2 w-100 h-100  py-lg-4 py-md-3 py-2">
+
+       
+        <h1 class=" fs-3 text-center my-4 text-capitalize featureTitle1">
+        {{ section.settings.PRoductHeader1 }}
+        </h1>
+        <h1 class="featuresHeader1 text-center mt-3 mb-5 text-capitalize">{{ section.settings.PRoductHeader2 }}
+        </h1>
+        <div class="row w-100 h-100 px-2 px-lg-4 ">
+               <div class="col-md-4 col-12 first-column ">
+               {% for block in section.blocks %}
+                 {% if block.type == "right-block" %}
+                <div class="d-flex justify-content-end align-items-start my-md-3 my-2 py-2 w-100 h-100">
+                
+                     <div class="d-flex flex-column justify-content-end align-items-end content-detail">
+                         <h4 class=" benefitTitleS1  fw-bolder text-end  style="color: {{block.settings.benefitTitlecolor}}; " >
+                           {{ block.settings.texTid }}
+                        </h3>
+                         <p class=" benefitDesCRI1 text-end  style=" color: {{block.settings.benefitDesColor}};" >
+                          {{ block.settings.ptexTid }}
+                        </p>
+                    </div>
+                   <img src="{{ block.settings.producTimages | img_url:'' }}" class="imgSize ms-3 ms-md-4  rounded-circle">
+                   
+            </div>
+                   {% endif %}
+              {% endfor %}       
+    </div>
+    
+            <div class="col-md-4 col-12 d-flex  justify-content-center align-items-center ">
+                <img src="{{ section.settings.product_img | img_url:'' }}" class="w-100" alt="" srcset="">
+            </div>
+
+ <div class="col-md-4 col-12  second-column">
+
+               {% for block in section.blocks %}
+                 {% if block.type == "left-block" %}
+                <div class="d-flex justify-content-start align-items-start my-md-3 my-2 py-2  w-100 h-100">
+                 <img src="{{ block.settings.productimages2 | img_url:'' }}" class="imgSize me-3 me-md-4  rounded-circle">
+
+                   <div class="d-flex flex-column justify-content-start align-items-start content-detail">
+                         <h4 class=" benefitTitleS1 fw-bolder text-start "  style="color: {{block.settings.benefitTitlecolor2}};">
+                             {{ block.settings.textid2 }}
+                        </h3>
+                         <p class=" benefitDesCRI1 text-start "  style="color: {{block.settings.benefitDesColor2}};">
+                        {{ block.settings.ptextid2 }}
+                        </p>
+                    </div>
+            </div>
+                   {% endif %}
+              {% endfor %}       
+    </div>
+
+      </div>
+
+ 
+        
+    </section>
+
+{% comment %}
+{% endfor %}
+html code is end here
+{% endcomment %}
+
+
+
+
+
+{% schema %}
+{
+   "name":"ProductBenefit2",
+   "settings":[
+        {           
+  "type": "image_picker",
+  "id": "product_img",
+  "label": "image"
+},
+      {
+  "type": "color_background",
+  "id": "features2Background",
+   "label": "Background ",
+  "default": "#fff"
+},
+      {
+  "type": "color",
+  "id": "featuretitle1",
+  "label": "Title Color1",
+  "default": "#000000"
+},
+      {
+  "type": "color",
+  "id": "featuretitle2",
+  "label": "Title Color2",
+  "default": "#000000"
+},
+        {           
+  "type": "text",
+  "id": "PRoductHeader1",
+  "label": "header",
+  "default":"add product header"
+},
+        {           
+  "type": "text",
+  "id": "PRoductHeader2",
+  "label": "header",
+  "default":"add product header"
+}
+     
+   ],
+   "blocks":[
+      {
+         "type":"right-block",
+         "name":"right-block",
+         "settings":[
+            {
+               "type":"text",
+               "id":"texTid",
+               "label":"title",
+               "default":"add productTitle"
+            },
+            {
+               "type":"text",
+               "id":"ptexTid",
+               "label":"discription",
+               "default":"add text about product "
+            },
+            {
+               "type":"image_picker",
+               "id":"producTimages",
+               "label":"Logo image"
+            },
+            {
+            "type": "color",
+            "id": "benefitTitlecolor",
+            "label": "Title",
+            "default": "#000000"
+          },
+            {
+            "type": "color",
+            "id": "benefitDesColor",
+            "label": "Description",
+            "default": "#000000"
+          }
+         ]
+      },
+      {
+         "type":"left-block",
+         "name":"left-block",
+         "settings":[
+            {
+               "type":"text",
+               "id":"textid2",
+               "label":"title",
+               "default":"add productTitle"
+            },
+            {
+               "type":"text",
+               "id":"ptextid2",
+               "label":"discription",
+               "default":"add text about product"
+            },
+            {
+               "type":"image_picker",
+               "id":"productimages2",
+               "label":"Logo image"
+            },
+              {
+              "type": "color",
+              "id": "benefitTitlecolor2",
+              "label": "Title Color1",
+              "default": "#000000"
+            },
+              {
+              "type": "color",
+              "id": "benefitDesColor2",
+              "label": "Title Color1",
+              "default": "#000000"
+            }
+         ]
+      }
+   ],
+   "presets":[
+      {
+         "name":"Product two Benefit2",
+         
+         "blocks":[
+            {
+               "type":"right-block"
+            },
+           {
+             "type":"left-block"
+           }
+         ]
+      }
+      
+   ]
+}
+
+{% endschema %}
+
+{% stylesheet %}
+  .blueColor{
+    color: #06264b;
+}
+.orangeColor{
+    color: #fc6539;
+}
+.marginLeft{
+    margin-left: 50px;
+}
+.imgSize{
+    height: 56px;
+    width: 60px;
+}
+
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

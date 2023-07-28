@@ -1,0 +1,67 @@
+{% schema %}
+{
+  "name": "Two image",
+  "settings": [
+          {
+  "type": "image_picker",
+  "id": "uploadimage",
+  "label": "image"
+},
+              {
+  "type": "image_picker",
+  "id": "uploadimage2",
+  "label": "image"
+}
+
+
+   
+  ],
+  "presets": [
+    {
+      "name": "two image",
+      "category": "Banners"
+    }
+  ]
+}
+{% endschema %}
+  {% assign first =  section.settings.uploadimage %}
+  {% assign second =  section.settings.uploadimage2 %}
+  
+
+<div class="container">
+  <div class="  {% if first !=blank and second ==blank %} fullbanner  {% endif %}  {% if first !=blank and second !=blank %} halfbanner  {% endif %} ">
+  <img src="{{ first | img_url:"master" }}" alt="">
+    
+  </div>
+  {% if second %}
+  <div class="halfbanner">
+  <img src="{{ second | img_url:"master" }}" alt="">
+  
+  </div>
+  {% endif %}
+</div>
+<style>
+.container {
+  display: flex;
+}
+.fullbanner{
+   flex: 100%;
+}
+
+  .halfbanner{
+    flex:50%;
+  }
+
+
+img {
+  width: 100%;
+  height: 200px;
+}
+
+</style>
+
+
+
+
+
+

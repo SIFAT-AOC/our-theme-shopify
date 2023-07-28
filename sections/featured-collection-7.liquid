@@ -1,0 +1,161 @@
+<style>
+
+    .f-c-l-7-h-t-1{
+        text-align:center;
+      color:{{ section.settings.f-c-l-7-c }}}
+              }.c-l-6-t-l-2, .c-l-6-t-r-2, .c-l-6-b-l-2, .c-l-6-b-r-2 h2, * h2 {
+    width: 100%;
+}
+      .f-c-l-7-img{
+                height: 270px;
+                }
+                .f-c-l-7-img img{
+                object-fit: cover;
+                }
+                .f-c-l-7-h-t{
+                    height: 148px;
+                    padding: 30px;
+                    background-color:{{section.settings.f-c-7-backgroundColour}};
+                  text-align:center;
+                }
+      .f-c-l-7-h-t h3{
+          text-align: center;
+
+         text-overflow: ellipsis;
+         white-space: nowrap;
+         overflow: hidden;
+      }
+       
+      .f-c-l-7-r-2 {
+        --bs-gutter-x: 3rem;
+    }
+          @media only screen and (max-width: 768px) {
+               /* Responsive layout for mobile devices */
+                 .f-c-l-7-img {
+    height: 206px;
+}
+            .f-c-l-7-r-2 {
+        --bs-gutter-x: 1rem;
+    }
+           
+                    .f-c-l-7-h-t h3{
+             text-overflow: ellipsis;
+             white-space: nowrap;
+             overflow: hidden;
+                    }
+                .f-c-l-7-h-t {
+    height: 75px;
+    padding: 10px;
+    background-color: #f3f3f3;
+    text-align: center;
+}
+             }
+    
+             /* Tablet */
+             @media only screen and (min-width: 768px) and (max-width: 992px) {
+               /* Responsive layout for tablet devices */
+               .f-c-l-7-img {
+                 height: 330px;
+               }
+               .f-c-l-7-h-t h3{
+          text-align: center;
+         text-overflow: ellipsis;
+         white-space: nowrap;
+         overflow: hidden;
+      }
+      .f-c-l-7-r-2 {
+        --bs-gutter-x: 2rem;
+    }
+             }
+    </style>
+<div class="container mt-4 mb-4">
+    <h2 class="f-c-l-7-h-t-1 my-4">{{ section.settings.f-c-7-t }} </h2>
+  <div class="row d-flex justify-content-between f-c-l-7-r-2">
+       {% assign collection = collections[section.settings.collection6] %}
+        
+        
+        {% for product in collection.products limit: section.settings.product_limit6%} 
+        
+            <div class="  col-6 col-lg-3  mb-md-4 mb-2">
+              
+              <div class=" ">
+              <div class="f-c-l-7-img">
+                         <img src="{{ product.featured_image | img_url: 'master' }}" class="w-100 h-100" alt="" srcset="">
+              </div>
+                <div class="f-c-l-7-h-t">
+  
+                  <a href="{{product.url}}">
+                  <h3 style="margin: 0px;"> {{ product.title }} </h3>
+                  </a>
+                  
+                 <p class="text-center my-3">
+                    <span class="pe-3 f-c-l-7-s">{{ product.price | money }}</span>
+  
+                    <span class="text-decoration-line-through"  style="color:  #ff2f00e3;font-size: 15px; font-weight: 450;">{{ product.compare_at_price | money }}</span>
+                    
+                 </p>
+                </div>
+                
+              </div>
+              
+            </div>
+           {% endfor %}
+          
+        </div>
+        </div>
+        
+
+{% schema %}
+  {
+    "name": "Featured collection-7",
+    "settings": [{
+               "type":"text",
+               "id":"f-c-7-t",
+               "label":"add text",
+               "default":"add your title here"
+            },
+       {
+           "type": "color",
+           "id": "f-c-7-backgroundColour",
+           "label": "Section Background Color",
+           "default": "#f7f8f9"
+         },
+        {
+  "type": "color",
+  "id": "f-c-l-7-c",
+  "label": "Section Title ",
+  "default": "#000000"
+},
+      {
+      "type": "collection",
+      "id": "collection6",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "product_limit6",
+      "label": "Product Limit",
+      "default": 4,
+      "min": 1,
+      "max": 12,
+      "step": 1
+    }
+  ],
+  "presets":[
+    {
+      "name": "Fetured-Collection-7",
+       "category": "Product",
+      "settings": {
+        "collection6": "all",
+        "product_limit6": 4
+      }
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

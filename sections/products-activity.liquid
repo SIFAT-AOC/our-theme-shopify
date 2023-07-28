@@ -1,0 +1,117 @@
+<style>
+  .imgSize{
+    height: 90px;
+    width: 90px;
+}
+
+</style>
+<section>
+    <div class=" container my-4 my-5" style="border-top: 1px solid #f2f2f2;">
+        <h1 class="text-size text-center mt-4 text-capitalize mb-5"  style="color:{{section.settings.productHeaderTitle}};" >
+                {{ section.settings.activity-header-tile }}    
+        </h1>
+            <div class="row w-100 ">
+        {%for block in section.blocks%}
+          
+            <div class=" col-md-3 col-12 d-flex flex-column justify-content-center align-items-center my-4">
+                <img src="{{ block.settings.activityimage | img_url:"" }}" alt="" srcset="" class="imgSize">
+                <h1 class="fs-3 text-center mt-md-5 mt-3" style="color:{{block.settings.activityTitleColor}};">
+                {{ block.settings.activity-title }}   
+                </h1>      
+              <p class="fs-5 text-center" style="color:{{block.settings.activityDescrptionColor}};"> {{ block.settings.activityDes }} </p>
+              
+            </div>
+  {%endfor%}
+          
+        </div>
+    </div>
+</section>
+
+
+  {% schema %}
+{
+   "name":"Product Activity",
+   "settings":[
+            {         
+               "type":"text",
+               "id":"activity-header-tile",
+               "label":"Header Title",
+               "default":"Add Product Activity Title"
+            },
+         {
+        "type": "color",
+        "id": "productHeaderTitle",
+        "label": "Title",
+        "default": "#000000"
+      }
+  
+   ],
+   "blocks":[
+      {
+         "type":"Activity",
+         "name":"Product Activity",
+         "settings":[
+            {         
+               "type":"text",
+               "id":"activity-title",
+               "label":"Add Title",
+               "default":"Add Title"
+            },
+            {
+               "type":"text",
+               "id":"activityDes",
+               "label":"Description-Text",
+               "default":"Add Description"
+            },
+            {
+               "type":"image_picker",
+               "id":"activityimage",
+               "label":"Product activity image"
+            },
+            {
+        "type": "color",
+        "id": "activityTitleColor",
+        "label": "Title",
+        "default": "#000000"
+      },
+            {
+        "type": "color",
+        "id": "activityDescrptionColor",
+        "label": "Description",
+        "default": "#000000"
+      }
+         ]
+      }
+   ],
+   "presets":[
+      {
+         "name":"Product-Activity",
+         "blocks":[
+            {
+               "type":"Activity"
+            },
+            {
+               "type":"Activity"
+            },
+            {
+               "type":"Activity"
+            },
+            {
+               "type":"Activity"
+            },
+            {
+               "type":"Activity"
+            }
+         ]
+      }
+   ]
+}
+
+{% endschema %}
+
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

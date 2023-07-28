@@ -1,0 +1,51 @@
+{% for block in section.blocks %}
+  {% if block.settings.texid %}
+<div class="addText">
+  <p class="text">{{ block.settings.texid }}</p>
+</div>
+{% endif %}
+{% endfor %}
+
+{% schema %}
+{
+  "name": "announcements",
+  "settings": [
+
+  ],
+  "max_blocks": 12,
+  
+  "blocks": [
+    
+     {
+       "name": "announcements",
+       "type": "announcements",
+       "settings": [
+         {
+           "type": "text",
+           "id": "texid",
+           "label": "add your text"
+         }
+       ]
+     }
+   ],
+  "default": {
+    "blocks": [
+      {
+        "type": "announcements"
+      }
+    ]
+  }
+      
+     
+  
+   
+  
+}
+{% endschema %}
+
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

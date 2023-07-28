@@ -1,0 +1,187 @@
+<style>  
+/*   .testimonial2__content p{
+        position: relative;
+    }
+    .testimonial2__content p::before{
+    content: "\201D";
+    font-size: 40px;
+    color:rgb(205, 64, 64);
+    position: absulute;
+    top: 0;
+    bottom: -10px;
+}  */
+   
+    /* top header double border  */
+  
+  .TopHeader2::after{
+    content :'';
+    position: absolute;
+    height: 2px;
+    width:5%;
+    background: #fc6539;
+    left: 45%;
+    bottom: -15px;
+}
+.TopHeader2::before{
+    content :'';
+    position: absolute;
+    height: 2px;
+    width:5%;
+    background: #908b89;
+    left: 47%;
+    bottom:-22px;   
+}
+  .TopHeader2{
+    position: relative;
+}
+ .testimonial2{
+    width: 370px;
+    height: 410px;
+    border: 1px solid rgb(214, 211, 211);
+    border-radius: 20px;
+    padding: 8px 15px;
+    transition: all 0.5s ease;
+    background-color: #f8f8f8;
+ }
+ .testimonials2{
+    height: 100%;
+    width: 100%;
+    background-color: #f8f8f8;
+ }
+ .testimonial2:hover{
+    width: 370px;
+    height: 410px;
+    border: 1px solid rgb(214, 211, 211);
+    border-radius: 20px;
+    padding: 8px 15px;
+    box-shadow: 3px  3px 17px #828282;
+    background-color: #fff;
+ }
+ .userImage{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    border: 2px solid #f1987c;
+ }
+ .testimonial2__img{
+    height: 100%;
+    width: 100%;
+ }
+ .testimonial2__content p{
+    height: 150px;
+    width: 100%;
+    font-size: 15px;
+}
+ .testimonial2__content h3,h4{
+    height: 25px;
+    width: 100%;
+    font-size: 18px;
+ }
+  @media all and (max-width: 776px) {
+     .testimonial2{
+    width: 330px;
+    height: 370px;
+    border: 1px solid rgb(214, 211, 211);
+    border-radius: 20px;
+    padding: 8px 15px;
+    transition: all 0.5s ease;
+    background-color: #f8f8f8;
+ }
+  }
+</style>
+ 
+       
+              <div class="row w-100 gap-3 mx-auto px-md-0 px-2 d-flex justify-content-center align-content-center">
+                 <h1 class="TopHeader2 text-center fs-1 my-5 fw-bold mb-5"> {{ section.settings.TestiHeader }} </h1>
+                {% for block in section.blocks %}
+               <div class="col-lg-4 col-md-6 col-12 my-md-4 my-3 testimonial2 mx-lg-0 mx-md-0">
+                     <div class="testimonial2_all  d-flex justify-content-evenly flex-column align-items-center">
+                            <div class="testimonial2__img my-2 d-flex justify-content-center align-items-center">
+                            <img src="{{ block.settings.userImage2 | img_url:'' }}"  class="userImage" alt="" srcset="">
+                        </div>
+                        <div class="testimonial2__content">
+                             <h4 class="text-center mt-2 mb-2">{{ block.settings.Righttextid1 }}</h4>
+                          <p class="text-center  my-2" >{{ block.settings.Rightptextid2 }}
+                  </p>
+                          <h3 class="text-center mt-4 mb-2 d-flex justify-content-center align-items-center">
+                  {{ block.settings.userName2 }}
+                            </h3>
+          </div>
+                 </div>
+                  </div>
+                 {% endfor %}
+                 </div>
+           
+
+{% schema %}
+  {
+    "name": "user testimonial 2",
+    "settings": [
+              {
+               "type":"text",
+               "id":"TestiHeader",
+               "label":"Header",
+               "default":"add Testimonial Header"
+            }
+    ],
+    "blocks":[
+      {
+         "type":"testimonial-block",
+         "name":"testimonial-block",
+         "settings":[
+            {
+               "type":"text",
+               "id":"Righttextid1",
+               "label":"title",
+               "default":"add Title"
+            },
+            {
+               "type":"text",
+               "id":"Rightptextid2",
+               "label":"discription",
+               "default":"add text "
+            },
+            {
+               "type":"text",
+               "id":"userName2",
+               "label":"ADD NAME",
+               "default":"ADD NAME"
+            },
+             {           
+        "type": "image_picker",
+        "id": "userImage2",
+        "label": "image"
+      }
+         ]
+      }
+    ],
+  "presets":[
+      {
+         "name": "user testimonial 2",
+         
+         "blocks":[
+            {
+               "type":"testimonial-block"
+            },
+           {
+             "type":"testimonial-block"
+           },
+           {
+             "type":"testimonial-block"
+           },
+           {
+             "type":"testimonial-block"
+           }
+         ]
+      }
+      
+   ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

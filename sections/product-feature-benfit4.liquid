@@ -1,0 +1,179 @@
+<style>
+  .tops,.bottoms{
+    height:100%;
+    width:100%; 
+  }
+  .cart .bottoms h3{
+    width: 100%;
+    height: 100%;
+  }
+  .benifit2-header{
+    font-size:45px;
+  }
+  .cart .bottoms p{
+    width: 100%;
+    height: 100%;
+  }
+.cart,tops,{
+  height:100%;
+  width:100%;
+  padding: 15px;
+} 
+.sizeImg{
+    width: 100px;
+    height: 100px;
+}
+  .all-content{
+    display:grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-gap:2rem;
+  }
+ 
+ 
+</style>
+ 
+ <div class="px-lg-5 px-md-4 px-2 containeer  py-5 my-5">
+        <h1 class="fs-1 my-2  text-center fw-bold "  style="color:{{section.settings.benifit2TitleFea1}};">
+          {{ section.settings.headertitle }}
+        </h1>
+        <h1 class=" my-3 benifit2-header text-center fw-bold " style="color:{{section.settings.benifit2DescriptionFea2}};" >
+          {{ section.settings.headertitle1 }}
+        </h1>
+        <div class="row h-100 w-100 my-5">
+              <div class="col-sm-6 col-xs-12 mt-4 d-flex justify-content-start align-items-center">
+                
+                   <img src="{{ section.settings.leftimag | img_url:'' }}" class="w-100" alt="" srcset="">
+             
+            </div>
+<!--           first column -->
+            <div class="col-sm-6 col-xs-12  d-flex justify-content-end align-items-center mt-5 my-5"> 
+          <div class="all-content  p-lg-5 p-md-3 p-2 ">
+                {% for block in section.blocks %}
+                {% if block.type == "right-block" %}
+                    <div  class=" mb-5 d-flex flex-column justify-content-center align-items-center p-lg-2 ">
+                       <div class="tops d-flex  justify-content-center align-items-center">
+                          <img src="{{ block.settings.blockRightImag | img_url:'' }}" alt="" class="sizeImg mb-3  image-fluid" srcset="">
+                       </div>
+                    <div class="d-flex flex-column bottoms justify-content-center align-items-center px-lg-4 px-md-3 px-2 mt-3 ">
+                  <h3 class="fs-3  text-center h-100 w-100 "  style="color:{{block.settings.benifit2TitleFea1}};" >
+                 {{ block.settings.blockRightTitle }}
+                       </h3> 
+                       <p class="fs-5  text-center mb-md-2 mb-1 h-100 w-100"  style="color:{{block.settings.benifit2DescriptionFea2}};" >
+                      {{ block.settings.blockRightDescription }}
+                       </p>
+                    </div>
+        </div>
+              {% endif %}
+           {% endfor %}
+           </div>
+      </div>
+<!--           third column -->
+
+         
+        </div> 
+ </div>
+
+{% schema %}
+  {
+    "name": "product feature benefit 4",
+    "settings": [
+     {
+        "type":"image_picker",
+        "id":"leftimag",
+        "label":"add image"
+     },
+     
+      {
+        "type":"text",
+        "id":"headertitle",
+        "label":"add text",
+        "default":"add product header"
+      },
+         {
+        "type": "color",
+        "id": "benifit2Header1",
+        "label": "Title Color2",
+        "default": "#000000"
+      },
+         {
+        "type": "color",
+        "id": "benifit2Header2",
+        "label": "Title Color2",
+        "default": "#000000"
+      },
+      {
+        "type":"text",
+        "id":"headertitle1",
+        "label":"add text",
+        "default":"add product header"
+      }
+    ],
+    "blocks":[
+      {
+          "name":"right-block",
+          "type":"right-block",
+        "settings":[
+          {
+            "type":"image_picker",
+            "id":"blockRightImag",
+            "label":"add image"
+          },
+          {
+             "type":"text",
+            "id":"blockRightTitle",
+            "label":"Heading",
+            "default":"add product Heading"
+          },
+          {
+            "type":"text",
+            "id":"blockRightDescription",
+            "label":"description",
+            "default":"add product description"
+          },   
+          {
+        "type": "color",
+        "id": "benifit2TitleFea1",
+        "label": "Title",
+        "default": "#000000"
+      },
+              {
+        "type": "color",
+        "id": "benifit2DescriptionFea2",
+        "label": "Description",
+        "default": "#000000"
+      }
+        ]
+  }
+      
+    ],
+    "presets":[
+      {
+      "name":"peoduct feature benifit 4",
+       "blocks":[
+             {
+                "type":"right-block"
+             },
+             {
+                "type":"right-block"
+             },
+             {
+                "type":"right-block"
+             },
+             {
+                "type":"right-block"
+             },
+             {
+                "type":"right-block"
+             }  
+       ]
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

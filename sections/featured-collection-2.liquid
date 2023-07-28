@@ -1,0 +1,146 @@
+<style>
+.fe-co-li-2-t{
+    color:{{section.settings.f-c-l-2-h-T}};
+          }.c-l-6-t-l-2, .c-l-6-t-r-2, .c-l-6-b-l-2, .c-l-6-b-r-2 h2, * h2 {
+    width: 100%;
+}
+  .f-c-l-2-img {
+    border-radius: 5%;
+    overflow: hidden;
+    height:300px;
+  }
+  .f-c-l-2-img img {
+    display: block;
+    object-fit:cover;
+     border-radius: 5%;
+     height: 100%;
+    transform: scale(1.1);
+     z-index: 0;
+  }
+
+  .f-c-l-2-img:hover img {
+    transform: scale(1.4);
+    transition: transform 1s ease;
+    z-index: 1;
+     height: 100%;
+  }
+  .fe-co-li-2-t h3,p{
+     text-overflow: ellipsis;
+         white-space: nowrap;
+         overflow: hidden;
+  }
+   .fe-co-li-2-t p {
+       display:inline;
+                 }
+       .fe-co-li-2-t span {
+       text-decoration:line-through;
+         color:#ff2f00e3;
+                 }
+ /* responsive media query section start */
+  @media (max-width: 1280px) {
+   .f-c-l-2-img {
+    height:245px;
+  }
+  }
+  @media (max-width: 992px) {
+     .f-c-l-2-img {
+    height:350px;
+  }
+  }
+  @media (max-width: 768px) {
+     .f-c-l-2-img {
+    height:370px;
+  }
+    
+      .fe-co-li-2-t h3{
+         text-overflow: ellipsis;
+         white-space: nowrap;
+         overflow: hidden;
+                }
+  }
+  @media (max-width: 580px) {
+  .f-c-l-2-img {
+    height:180px;
+  }
+      .fe-co-li-2-t h3{
+         text-overflow: ellipsis;
+         white-space: nowrap;
+         overflow: hidden;
+                }
+  }
+</style>
+<div class="container  mt-4"> <h2 class="text-center my-md-4 my-3">{{ section.settings.fe-co-li-2-t }}</h2>
+  <div class="row d-flex justify-content-between">
+    {% assign collection = collections[section.settings.collection] %}
+
+    {% for product in collection.products limit: section.settings.product_limit %}
+      <div class="col-lg-3 col-6 order-2 order-lg-1 mt-4 mb-3 mt-lg-0 mt-md-0">
+        <div class="f-c-l-2-img">
+          <img
+            src="{{ product.featured_image | img_url: 'master' }}"
+            class="w-100 h-100"
+            alt="{{ product.featured_image.alt }}"
+          >
+        </div>
+        <div class="fe-co-li-2-t mt-md-3 mt-2">
+           <a href="{{collection.url}}" class="text-md-start text-center">
+          <h3 class="my-2" style="margin: 0px;">{{ product.title }}</h3>
+  </a>
+          <p class=" pe-3">{{ product.price | money }}</p>
+           <span>{{ product.compare_at_price | money }}</span>
+        </div>
+      </div>
+    {% endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Featured Collection-2",
+  "settings": [
+     {
+               "type":"text",
+               "id":"fe-co-li-2-t",
+               "label":"add text",
+               "default":"Add Title Here"
+            },
+      {
+        "type":"color",
+        "id":"f-c-l-2-h-T",
+        "label":"add Text color",
+        "default":"#000000"
+        },
+    {
+      "type": "text",
+      "id": "price",
+      "label": "price",
+      "default": "add price"
+    },
+   
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "product_limit",
+      "label": "Product Limit",
+      "default": 4,
+      "min": 1,
+      "max": 12,
+      "step": 1
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured Collection -2",
+      "category": "Product",
+      "settings": {
+        "collection": "all",
+        "product_limit": 4
+      }
+    }
+  ]
+}
+{% endschema %}

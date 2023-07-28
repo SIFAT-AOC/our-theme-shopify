@@ -1,0 +1,135 @@
+<style>
+    /* header text */
+  /* custom build main container */
+  .collectionGrid {
+    padding: 25px 15px;
+  }
+ .c-l-6-t-l-2, .c-l-6-t-r-2, .c-l-6-b-l-2, .c-l-6-b-r-2 h2, * h2 {
+    width: 100%;
+}
+  a {
+    color: #000000;
+    text-decoration: none;
+    background-color: transparent;
+  }
+  /* image hover effect */
+
+  .imageContainers {
+    overflow: hidden;
+  }
+
+  .imageContainers img {
+    display: block;
+  }
+  .imageContainers:hover img {
+    transform: scale(1.2);
+    transition: transform 0.7s ease;
+    z-index: 1;
+  }
+  /* hover effect end */
+
+  /* responsive media query section start */
+
+  @media (max-width: 768px) {
+    .collectionGrid {
+      padding: 15px 10px;
+    }
+  }
+  @media (max-width: 580px) {
+    .collectionGrid {
+      padding: 10px 10px;
+    }
+  }
+</style>
+
+{% assign columnChange = section.settings.collectionGrid %}
+{% assign listcollection = collections[block.settings.FeaturedCollectionList-2] %}
+<!-- section start here -->
+<div class="container">
+  <h2 class="text-center">{{ section.settings.collectionHeader }}</h2>
+  {% case columnChange %}
+    {% when 2 %}
+      {%- assign grid_item = 'col-md-6' -%}
+
+    {% when 3 %}
+      {%- assign grid_item = 'col-md-4' -%}
+    {% when 4 %}
+      {%- assign grid_item = 'col-md-3' %}
+  {% endcase %}
+  <div class="row d-flex justify-content-center align-items-center">
+    <!-- first column -->
+    {% for block in section.blocks %}
+{% assign listcollection = collections[block.settings.FeaturedCollectionList-2] %}
+      <div class=" {{ grid_item }} col-6 collectionGrid">
+        <div class="imageContainers w-100 h-75">
+          <img src="{{ listcollection.featured_image | img_url: 'master' }}" class="w-100 h-100" alt="">
+        </div>
+        <a href="{{listcollection.url}}" class=" text-md-start text-center">
+          <h3 class="" style="
+         text-overflow: ellipsis;
+         white-space: nowrap;
+         overflow: hidden; margin:5px;">{{ listcollection.title }}</h3>
+<!--           <span class=""></span> -->
+        </a>
+      </div>
+      <!-- first column end here -->
+    {% endfor %}
+  </div>
+  <!-- row end here -->
+</div>
+<!-- main section end here -->
+{% schema %}
+{
+  "name": "collection-List-9",
+  "settings": [
+
+    {
+    "type":"text",
+      "id":"collectionHeader",
+      "label":"heading",
+      "default":"Add your collection list"
+    },
+          {
+        "type": "range",
+        "id": "collectionGrid",
+        "label": "Collections per row",
+        "min": 2,
+        "max": 4,
+        "step": 1,
+        "default": 2
+      }
+
+  ],
+   "blocks":[
+      {
+        "name":"Collection-List-9",
+        "type":"collectionBlock",
+        "settings":[
+           {
+      "type": "collection",
+      "id": "FeaturedCollectionList-2",
+      "label": "Collection"
+    }
+        ]
+      }
+   ],
+  "presets":[
+    {
+     "name":"collection-List-9",
+      "category": "Collection-List-9",
+       "blocks":
+      [
+      {
+      "type":"collectionBlock"
+     }
+      ]
+ }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

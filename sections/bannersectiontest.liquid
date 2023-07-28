@@ -1,0 +1,63 @@
+{% schema %}
+{
+  "name": {
+    "en": "Brand"
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "desktop_text",
+      "label": {
+        "en": "Desktop Text"
+      }
+    },
+    {
+      "type": "text",
+      "id": "mobile_text",
+      "label": {
+        "en": "Mobile Text"
+      }
+    }
+  ],
+
+   "presets": [
+    {
+      "name": "Tect With mobile",
+      "category": "Banners"
+    }
+  ]
+}
+{% endschema %}
+
+  <div class="brand">
+    <div class="desktop-text">{{ section.settings.desktop_text }}</div>
+    <div class="mobile-text">{{ section.settings.mobile_text }}</div>
+  </div>
+
+<style>
+  .brand {
+  text-align: center;
+  font-size: 24px;
+}
+
+@media only screen and (max-width: 767px) {
+  .brand .desktop-text {
+    display: none;
+  }
+
+  .brand .mobile-text {
+    display: block;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .brand .desktop-text {
+    display: block;
+  }
+
+  .brand .mobile-text {
+    display: none;
+  }
+}
+</style>
+

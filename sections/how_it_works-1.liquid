@@ -1,0 +1,80 @@
+
+ <div class="container">
+        <h2 class="text-center fs-4 fw-light my-4 my-md-2 ">
+          {{ section.settings.header-text1 }}
+        </h2>
+        <h1 class="TopHeader text-center fs-1 my-4 my-md-2 fw-bold">{{ section.settings.header-pText1 }}</h1>
+        <img src="{{ section.settings.imageHowWorks | img_url: '' }}" class="imageHowWork" alt="">
+    </div>
+
+{% schema %}
+  {
+    "name": "How it works 1",
+    "settings": [
+      {
+        "type":"text",
+          "id":"header-text1",
+        "label":"header",
+        "default":"add header"
+      },
+      {
+        
+        "type":"text",
+          "id":"header-pText1",
+        "label":"Text",
+        "default":"add text"
+      },
+      {
+       "type":"image_picker",
+        "id":"imageHowWorks",
+        "label":"image"
+      }
+    ],
+    "presets":[
+      {
+      "name":"how it works 1"
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+  .TopHeader{
+    position: relative;
+}
+.TopHeader::after{
+    content :'';
+    position: absolute;
+    height: 2px;
+    width:5%;
+    background: #fc6539;
+    left: 45%;
+    bottom: -15px;   
+}
+.TopHeader::before{
+    content :'';
+    position: absolute;
+    height: 2px;
+    width:5%;
+    background: #908b89;
+    left: 47%;
+    bottom: -22px;
+}
+.imageHowWork{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.parallox{
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   position: relative;
+ 
+}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

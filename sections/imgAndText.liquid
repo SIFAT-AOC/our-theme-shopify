@@ -1,0 +1,49 @@
+<section>
+<div class=" p-3 banner-hei container">
+    <div class="row ">
+       {% for block in section.blocks %}}
+        <div class="col-md-6 col-12 d-flex flex-column  justify-content-center align-items-center ">
+            <img src="{{ block.settings.image }}" class=" img-fluid" alt="">
+        </div>
+      {% endfor %}
+        <div class="col-md-6 col-12 my-md-5  mb-sm-4 d-flex flex-column justify-content-center align-items-start">
+            <h1 class=" fonts-si2 banner-text mb-2">
+                Revitalize Your Skin
+            </h1>
+            <p class="text-justify mt-md-3 mt-4 liNetext">Faber uses only the finest natural ingredients to craft products that deliver radiant results while improving the appearance of skin to restore or maintain your youthful beauty. Our products are handcrafted in small batches to ensure maximum freshness and effectiveness all without the hefty pricetag often found with other "high-end" skincare products. All products are manufactured in the USA</p>
+           
+        </div>
+    </div>
+   
+</div>
+</section>
+
+
+
+{% schema %}
+  {
+    "name": "right text left img",
+    "settings": [
+      
+    ],
+    "blocks" : [
+      {
+      "type":"image",
+        "name":"image_block",
+        "settings":[
+                    {
+                    "type":"image_picker",
+                      "label":"select image",
+                      "id":"image"
+                    }
+                    ]
+        }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

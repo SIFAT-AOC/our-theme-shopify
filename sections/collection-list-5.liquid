@@ -1,0 +1,251 @@
+<style>
+  .c-li-5-B-1{
+    height: 225px;
+    position: relative;
+}
+.c-li-5-B-1 h3 {
+	position: absolute;
+	left: 20px;
+	bottom: 10px;
+	text-transform: uppercase;
+	letter-spacing: 3px;
+	width: 80%;
+	background-color: rgba(0, 0, 0, 0.12);
+	padding: 10px;
+	text-align: center;
+}
+   .c-l-5-t{
+    text-align:center;
+     color:{{section.settings.c-l-5-h-c}};
+          }
+          .c-l-5-im-fit{
+            object-fit:cover;
+          }
+           .c-l-6-t-l-2,.c-l-6-t-r-2,.c-l-6-b-l-2,.c-l-6-b-r-2 h2, * h2 {
+      width: 100%;
+  }
+
+.c-li-5-c-2,.c-li-5-c-3{
+    height: 380px;
+    position: relative;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.c-li-5-c-2 h3 {
+	position: absolute;
+	left: 60px;
+	bottom: 50px;
+	text-transform: uppercase;
+	letter-spacing: 3px;
+	width: 40%;
+	padding: 10px;
+	background-color: rgba(0, 0, 0, 0.12);
+  text-align:center;
+}
+.c-li-5-c-3 h3{
+    position: absolute;
+    left: 60px;
+    bottom: 50px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    width: 70%;
+    background-color: rgba(0, 0, 0, 0.12);
+	padding: 10px;
+	text-align: center;
+}
+/* Mobile Phones */
+@media only screen and (max-width: 768px) {
+    /* Styles for mobile phones */
+  
+  .c-li-5-B-1 h3 {
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    width: 90%;
+}
+  .c-li-5-B-1{
+        height: 100px;
+        position: relative;
+        margin-bottom: 8px;
+    }
+    .c-li-5-c-2{
+        height: 290px;
+        position: relative;
+        margin-top: 0px;
+        margin-bottom: 10px;
+    }
+    .c-li-5-c-3{
+        height: 315px;
+        position: relative;
+        margin-top: 0px;
+        margin-bottom: 10px;
+    }
+    .r-c-l-5-1 {
+        --bs-gutter-x: 0.5rem;
+    }
+    .c-li-5-c-3 h3{
+        position: absolute;
+        left: 6px;
+        bottom: 5px;
+        color: #fff;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        width: 80%;
+        text-align: center;
+    }
+    .c-li-5-c-2 h3 {
+        position: absolute;
+        left: 44px;
+        bottom: 72px;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        width: 80%;
+        padding: 10px;
+        background-color: white;
+    }
+}
+  
+</style>
+{% assign listcollection = collections[section.settings.collection] %}
+{% assign listcollection1 = collections[section.settings.collection1] %}
+{% assign listcollection2 = collections[section.settings.collection2] %}
+{% assign listcollection3 = collections[section.settings.collection3] %}
+{% assign listcollection4 = collections[section.settings.collection4] %}
+<div class="container my-4">
+   <h2 class="c-l-5-t my-4" style="text-overflow: ellipsis;
+           white-space: nowrap;
+           overflow: hidden;">{{ section.settings.c-l-5-t }}</h2>
+      <div class="row d-flex justify-content-between r-c-l-5-1">
+         <!-- first column start from here  -->
+        <div class="col-md-12 col-7 order-md-1 order-2">
+          <div class="row d-flex justify-content-between r-c-l-5-1">
+            <div class="col-md-4 col-12">
+              <div class="c-li-5-B-1">
+                <img src="{{ listcollection.featured_image | img_url: 'master' }}" alt="" class="w-100 h-100 c-l-5-im-fit" srcset="" />
+                <a href="{{ listcollection.url }}"><h3 class="" style="color: {{section.settings.co-li-ti-5-1}};"> {{ listcollection.title }}</h3></a>
+              </div>
+            </div>
+            <div class="col-md-4 col-12">
+              <div class="c-li-5-B-1">
+                <img src="{{ listcollection1.featured_image | img_url: 'master' }}" alt="" class="w-100 h-100 c-l-5-im-fit" srcset="" />
+                <a href="{{ listcollection1.url }}"> <h3 class="" style="color: {{section.settings.co-li-ti-5-2}};"> {{ listcollection1.title }}</h3></a>
+              </div>
+            </div>
+            <div class="col-md-4 col-12">
+              <div class="c-li-5-B-1">
+                <img src="{{ listcollection2.featured_image | img_url: 'master' }}" alt="" class="w-100 h-100 c-l-5-im-fit" srcset="" />
+                 <a href="{{ listcollection2.url }}"><h3 class="" style="color: {{section.settings.co-li-ti-5-3}};">{{ listcollection2.title }}</h3></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- first column close here  -->
+
+        <!-- second column start from here  -->
+        <div class="col-md-8 col-12 order-md-2 order-1">
+            <div class="c-li-5-c-2">
+                <img src="{{ listcollection3.featured_image | img_url: 'master' }}" alt="" class="w-100 h-100 c-l-5-im-fit" srcset="" />
+                 <a href="{{ listcollection3.url }}"><h3 class="" style="color: {{section.settings.co-li-ti-5-4}};">{{ listcollection3.title }}</h3></a>
+              </div>
+        </div>
+        <div class="order-3 col-md-4 col-5">
+            <div class="c-li-5-c-3"> 
+                <img src="{{ listcollection4.featured_image | img_url: 'master' }}" alt="" class="w-100 h-100 c-l-5-im-fit" srcset="" />
+                 <a href="{{ listcollection4.url }}"><h3 class="" style="color: {{section.settings.co-li-ti-5-5}};">{{ listcollection4.title }}</h3></a>
+              </div>
+        </div>
+        <!-- second column end here  -->
+        
+    </div>
+    </div>
+{% schema %}
+  {
+    "name": "collection-list-5",
+    "settings": [
+         {
+               "type":"text",
+               "id":"c-l-5-t",
+               "label":"add text",
+               "default":"add your title here"
+            },
+      {
+      "type":"color",
+        "id":"c-l-5-h-c",
+        "label":"Section Title Color",
+        "default":"#000000"
+      },
+      {
+      "type":"color",
+        "id":"co-li-ti-5-1",
+        "label":"1st Div title Color",
+        "default":"#000000"
+      },
+      {
+      "type":"color",
+        "id":"co-li-ti-5-2",
+        "label":"2nd Div title Color",
+        "default":"#000000"
+      },
+      {
+      "type":"color",
+        "id":"co-li-ti-5-3",
+        "label":"3rd Div title Color",
+        "default":"#000000"
+      },
+      {
+      "type":"color",
+        "id":"co-li-ti-5-4",
+        "label":"4th Div title Color",
+        "default":"#000000"
+      },
+      {
+      "type":"color",
+        "id":"co-li-ti-5-5",
+        "label":"5th Div title Color",
+        "default":"#000000"
+      },
+       {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection1(Recommanded Image Height 225px)"
+    },
+      {
+      "type": "collection",
+      "id": "collection1",
+      "label": "Collection2(Recommanded Image Height 225px)"
+    },
+        {
+      "type": "collection",
+      "id": "collection2",
+      "label": "Collection3(Recommanded Image Height 225px)"
+    },
+        {
+      "type": "collection",
+      "id": "collection3",
+      "label": "Collection4(Recommanded Image Height 380px)"
+        },
+        {
+      "type": "collection",
+      "id": "collection4",
+      "label": "Collection5(Recommanded Image Height 380px)"
+        }
+    ],
+     "presets": [
+    {
+      "name": "Collection-List-5"
+
+    }
+  ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

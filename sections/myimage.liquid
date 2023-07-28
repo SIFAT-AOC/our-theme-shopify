@@ -1,0 +1,95 @@
+{% schema %}
+{
+  "name": "My image",
+  "settings": [
+    {
+      "type": "text",
+      "id": "textid",
+      "label": "Banner Image"
+    },
+
+      {
+      "type": "text",
+      "id": "textid2",
+      "label": "Banner Image 2"
+    }
+   
+  ],
+  "presets": [
+    {
+      "name": "My image",
+      "category": "Banners"
+    }
+  ]
+}
+{% endschema %}
+
+{% assign text= section.settings.textid %}
+{% assign text2 =  section.settings.textid2 %}
+
+{% assign half= 25 %}
+
+
+{% if text !=blank and text2==blank %}
+  {% assign half= 100 %}
+  
+  {% elsif text!=blank and text!=blank %}
+  {% assign half= 48 %}
+  
+  
+  
+
+  {% endif %}
+  
+  
+
+
+
+<div class="text1 {% if text!=blank and text2==blank %} fullmedia {% endif %} {% if text !=blank and text2 !=blank %} halfmedia {% endif %}">
+
+  {{ text }}
+
+</div>
+
+<div class="text2">
+  {{ text2 }} 
+  
+</div>
+
+
+
+
+
+  
+
+<style>
+  .fullmedia{
+    width:100%;
+    background:red;
+    
+    display:inline-block;
+    height: 100px;
+    
+  }
+/*   .text1{
+    width:{{half}}%;
+  } */
+    .text2{
+      
+    display:inline-block;
+      
+    background:green;
+  }
+
+  .halfmedia {
+  width: 50%;
+    display:inline-block;
+    
+}
+</style>
+
+
+
+
+
+

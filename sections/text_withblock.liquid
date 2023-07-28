@@ -1,0 +1,71 @@
+{%for block in section.blocks%}
+<div>
+    <div class="card">
+        <div class="card-body text-center">
+            <img src="{{ block.settings.testi-img | img_url: 'small' }}" />
+            <h3 class="card-title py-2">{{block.settings.testi-title}}</h3>
+            <p class="card-text">{{block.settings.testi-text}}</p>
+        </div>
+    </div>
+</div>
+{%endfor%}
+
+
+
+
+{% schema %}
+{
+   "name":"Custom Testimonial",
+   "settings":[
+      {
+         "type":"text",
+         "id":"testi-title",
+         "label":"Testimonial Title",
+         "default":"Testimonial"
+      }
+   ],
+   "blocks":[
+      {
+         "type":"quote",
+         "name":"Testimonial",
+         "settings":[
+            {
+               "type":"text",
+               "id":"testi-title",
+               "label":"Author",
+               "default":"mycodemagic"
+            },
+            {
+               "type":"richtext",
+               "id":"testi-text",
+               "label":"Text",
+               "default":"<p>Add customer reviews and testimonials to showcase your store’s happy customers.</p>"
+            },
+            {
+               "type":"image_picker",
+               "id":"testi-img",
+               "label":"Logo image"
+            }
+         ]
+      }
+   ],
+   "presets":[
+      {
+         "name":"New Testimonials",
+         "category":"Text",
+         "blocks":[
+            {
+               "type":"quote"
+            },
+            {
+               "type":"quote"
+            },
+            {
+               "type":"quote"
+            }
+         ]
+      }
+   ]
+}
+
+{% endschema %}

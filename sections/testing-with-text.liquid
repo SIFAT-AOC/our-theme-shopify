@@ -1,0 +1,51 @@
+<div class="fslideractive" data-slick='{"slidesToShow": 4, "slidesToScroll": 4}'>
+  <h1>{{ section.settings.title }}</h1>
+  <h1>{{ section.settings.title }}</h1>
+
+  <h1>{{ section.settings.title }}</h1>
+
+  <h1>{{ section.settings.title }}</h1>
+</div>
+
+{% schema %}
+  {
+    "name": "Image And Text",
+    "settings": [
+
+
+                {
+  "type": "text",
+  "id": "title",
+  "label": "Enter Your Title",
+   "default": "Add your Title"
+
+
+}
+
+
+
+
+
+    ],
+
+        "presets": [
+    {
+      "name": "Text-with-text"
+
+
+    }
+  ]
+
+
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+          $(document).ready(function(){
+      $('.fslideractive').slick();
+
+  });
+{% endjavascript %}

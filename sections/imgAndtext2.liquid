@@ -1,0 +1,66 @@
+<section>
+<div class=" p-3 banner-hei container">
+    <div class="row ">
+      
+        <div class="col-md-6 col-12 d-flex flex-column  justify-content-center align-items-center ">
+           
+            <img src="{{ section.settings.imageBanner | img_url:"" }}" class=" img-fluid" alt="">
+          
+        </div>
+    
+        <div class="col-md-6 col-12 my-md-5  mb-sm-4 d-flex flex-column justify-content-center align-items-start">
+            <h1 class=" fonts-si2 banner-text mb-2">
+                {{ section.settings.headingtext }}
+            </h1>
+            <p class="text-justify mt-md-3 mt-4 liNetext">
+              {{ section.settings.peratext }}
+            </p>
+           
+        </div>
+    </div>
+   
+</div>
+</section>
+
+
+
+{% schema %}
+  {
+    "name": " RightImage With leftText",
+    "settings": [
+       {        
+         "type":"image_picker",
+          "label":"select image",
+          "id":"imageBanner"
+                    
+                  },
+      {
+         "type":"text",
+          "label":"headingText",
+          "id":"headingtext",
+          "default":"add text about product"
+      },
+      {
+         "type":"text",
+          "label":"peraText",
+          "id":"peratext",
+          "default":"add text about product"
+      }
+    ],
+   
+     "presets": [
+    {
+      
+      "name": "image and text2"
+
+ 
+    }
+  ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

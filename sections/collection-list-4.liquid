@@ -1,0 +1,149 @@
+<style>
+       .i-c-l-4{
+            height: 288px;
+        }
+.c-l-6-t-l-2, .c-l-6-t-r-2, .c-l-6-b-l-2, .c-l-6-b-r-2 h2, * h2 {
+    width: 100%;
+}
+  .c-l-4-tit{
+    text-align:center;
+          }
+        .im-c-l-4 h3{
+     text-overflow: ellipsis;
+         white-space: nowrap;
+         overflow: hidden;
+        }
+        .c-l-4{
+    border-radius: 20rem 20rem 0 0;
+}
+.c-l-4-m{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 1rem;
+}
+.c-l-4-m .c-l-4-b-1{
+    width:250px;
+}
+/* Mobile Phones */
+@media only screen and (max-width: 768px) {
+  /* Styles for mobile phones */
+  
+  .i-c-l-4{
+            height: 190px;
+        }
+        .c-l-4-m{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-gap: 1rem;
+}
+.c-l-4-m .c-l-4-b-1{
+    width: 166px;
+}
+}
+
+/* Tablets */
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  /* Styles for tablets */
+  .c-l-4-m .c-l-4-b-1{
+    width: 315px;
+}
+  .i-c-l-4{
+            height: 290px;
+        }
+        .c-l-4{
+    border-radius: 20rem 20rem 0 0;
+}
+.c-l-4-m{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-gap: 1.5rem;
+}
+  }
+@media only screen and (min-width: 1024px) and (max-width: 1240px) {
+   .c-l-4-m .c-l-4-b-1{
+    width: 220px;
+}
+}
+
+</style>
+
+
+  <div class="container my-4">
+    <h2 class=" my-md-5 my-3"  style="text-overflow: ellipsis;
+           white-space: nowrap;
+           overflow: hidden;color:  {{section.settings.c-l-4-c-2}}; text-align:center;">{{ section.settings.c-l-4-t }}</h2>
+         <div class="c-l-4-m ">
+              {% for block in section.blocks %}
+      <!-- first column -->
+      {%- assign collection = collections[block.settings.collection] -%}
+            <div class="c-l-4-b-1">
+               <div class="i-c-l-4">
+                 <img src="{{ collection.featured_image | img_url: 'master' }}" class="c-l-4 h-100 w-100" alt="">
+               </div>
+                <div class="im-c-l-4">
+                   <a href="{{collection.url}}" class="text-md-start text-center">
+           <h3 class=" mt-3 text-md-start text-center" style="color:  {{block.settings.c-l-4-c-1}};">{{ collection.title }}</h3>
+        </a>
+                </div>
+            </div>
+                {% endfor %}
+        </div>
+  </div>
+{% schema %}
+  {
+    "name": "collection-list-4",
+    "settings": [
+       {
+               "type":"text",
+               "id":"c-l-4-t",
+               "label":"add text",
+               "default":"add your title here"
+            },
+      {
+  "type": "color",
+  "id": "c-l-4-c-2",
+  "label": "Title Color",
+  "default": "#000000"
+}
+    ],
+    "blocks": [
+      {
+        "type": "Collection-List-4",
+        "name": "Collection",
+        "settings": [
+          {
+            "label": "Collection",
+            "id": "collection",
+            "type": "collection"
+          }, {
+  "type": "color",
+  "id": "c-l-4-c-1",
+  "label": "Title Color",
+  "default": "#000000"
+}
+
+        ]
+      }
+    ],
+   "presets": [
+   {
+        "name": "Collection list-4",
+        "category": "Collection",
+        "blocks": [
+          {
+            "type": "Collection-List-4"
+          }
+
+        ]
+      }
+  ]
+
+
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

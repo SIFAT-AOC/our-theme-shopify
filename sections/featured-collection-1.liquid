@@ -1,0 +1,195 @@
+<style>
+  .f-c-l-1-t{
+    text-align:center;
+    color:{{section.settings.f-c-l-1-h-T}};
+          }.c-l-6-t-l-2, .c-l-6-t-r-2, .c-l-6-b-l-2, .c-l-6-b-r-2 h2, * h2 {
+    width: 100%;
+}
+                     .col-6 {
+                       position: relative;
+                     }
+                     .col-6 img {
+                       display: block;
+                       max-width: 100%;
+                       height: auto;
+                     }
+                     .f-c-1-img {
+                       border-radius: 5%;
+                       overflow: hidden;
+
+                     }
+                     .f-c-1-img img {
+                       display: block;
+                       border-radius: 4%;
+                       object-fit:cover;
+                     }
+                     .f-c-1-img2 img {
+                       border-radius: 3%;
+                     }
+                     .f-c-1-img:hover img {
+                       transform: scale(1.1);
+                       transition: transform 0.9s ease;
+                       z-index: 1;
+                     }
+  .f-co-1-t h3{
+    margin:0px;
+  }
+   .f-co-1-t h3,p,span{
+                         text-overflow: ellipsis;
+     
+         white-space: nowrap;
+         overflow: hidden;
+   }
+                     .f-co-1-t h3,p,span{ text-overflow: ellipsis;
+         white-space: nowrap;
+         overflow: hidden;
+                     }
+
+       .f-co-1-t p {
+       display:inline;
+                 }
+       .f-co-1-t span {
+       text-decoration:line-through;
+                 }
+       .f-c-1-img  {
+                       height:190px;
+                     }
+   .f-c-1-img2{
+       height:500px;
+     }
+
+              @media only screen and (max-width: 768px) {
+           /* Responsive layout for mobile devices */
+              .f-c-1-img img {
+                       height:170px;
+                     }
+                .f-co-1-t h3{
+         text-overflow: ellipsis;
+         white-space: nowrap;
+         overflow: hidden;
+                }
+                .f-c-1-img2 {
+    height: 320px;
+}
+         }
+
+         /* Tablet */
+         @media only screen and (min-width: 768px) and (max-width: 992px) {
+           /* Responsive layout for tablet devices */
+           .f-c-1-img {
+             height: 150px;
+           }
+     .f-c-1-img2{
+       height:400px;
+     }
+         }
+
+         /* Laptop */
+         @media only screen and (min-width: 992px) and (max-width: 1280px) {
+           /* Responsive layout for laptop devices */
+        
+  .f-co-1-t h3{
+         text-overflow: ellipsis;
+         white-space: nowrap;
+         overflow: hidden;
+                }
+         } 
+</style>
+
+<div class="container">
+  <h2 class="f-c-l-1-t my-4">{{ section.settings.f-c-l-1-t }}</h2>
+  <div class="row d-flex justify-content-between">
+
+    <div class="col-lg-7 col-12 order-2 order-lg-1  mt-lg-0 mt-4">
+    
+      <div class="row d-flex flex-wrap justify-content-between">
+ 
+        {% assign collection = collections[section.settings.collection] %}
+    
+        {% for product in collection.products limit: section.settings.product_limit %}
+     
+          <div class="col-md-4 col-6 my-2">
+            <div class="f-c-1-img">
+              <img
+                src="{{ product.featured_image | img_url: 'master' }}"
+                class="w-100 h-100"
+                alt="{{ product.featured_image.alt }}"
+              >
+            </div>
+
+            <div class="f-co-1-t my-md-3 my-2">
+              <a href="{{ product.url }}"><h3>
+                {{ product.title }}
+              </h3> </a>
+
+              <!-- we are set a padding end which is value 5 it's class pe-5 -->
+
+              <p class="pe-3">{{ product.price | money }}</p>
+
+              <span>{{ product.compare_at_price | money }}</span>
+            </div>
+          </div>
+        {% endfor -%}
+
+        <!-- here for loop is end -->
+      </div>
+    </div>
+
+
+    <div class="col-lg-5 col-12  order-1 order-lg-2">
+      <div class=" f-c-1-img2">
+       <img src="{{ section.settings.big_Dog | img_url: 'master' }}" class="w-100  h-100" alt="Product 7">
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Featured Collection-1",
+  "settings": [
+    
+     {
+               "type":"text",
+               "id":"f-c-l-1-t",
+               "label":"add text",
+               "default":"Add Title Here"
+            },
+      {
+        "type":"color",
+        "id":"f-c-l-1-h-T",
+        "label":"add Text color",
+        "default":"#000000"
+        },
+    {
+               "type":"image_picker",
+               "id":"big_Dog",
+               "label":"add image"
+            },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "product_limit",
+      "label": "Product Limit",
+      "default": 4,
+      "min": 1,
+      "max": 12,
+      "step": 1
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured Collection -1",
+      "category": "Product",
+      "settings": {
+        "collection": "all",
+        "product_limit": 4
+      }
+    }
+  ]
+}
+{% endschema %}

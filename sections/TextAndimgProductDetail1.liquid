@@ -1,0 +1,109 @@
+<section class="all-content2  my-4 my-md-3 py-3 ">
+    <div class="row container">
+        <div class="col-md-6 d-flex flex-column justify-content-center align-items-center">
+            <img src="{{ section.settings.imagright1 | img_url: '' }}" class="w-100" alt="">
+        </div>
+        <div class="px-5 col-md-6 product-detail-2 d-flex flex-column justify-content-center align-items-start">
+                <h1 class="fs-1 fw-normal text-capitalize">
+                    {{ section.settings.header-left1 }}
+                </h1>
+                <p class="my-2 fs-3">
+                    {{ section.settings.description-left1 }}
+                  {% for block in section.blocks %}
+                    <ul>
+                        <li> {{ block.settings.ListText1 }}</li>
+                       
+                    </ul>
+                    {% endfor %}
+                </p>
+                <h3 class="price my-2 fs-1 fw-light text-start my-md-3">
+                   {{ section.settings.price-left1 }}
+                </h3>
+<!--                 <button class="btn-2 my-2">Shop Now -></button> -->
+        </div>
+    </div>
+</section>
+
+
+
+{% schema %}
+  {
+    "name": "Text and img detail1",
+    "settings": [
+        {
+        "type":"text",
+          "id":"header-left1",
+        "label":"header",
+        "default":"add header"
+      },
+       {
+        "type":"text",
+          "id":"description-left1",
+        "label":"description",
+        "default":"add description"
+      },
+       {
+        "type":"text",
+          "id":"price-left1",
+        "label":"price",
+        "default":"add price"
+      },
+        {
+       "type":"image_picker",
+        "id":"imagright1",
+        "label":"image"
+      }
+    ],
+     "blocks":[
+      {
+      "name":"Add List Item ",
+        "type":"productblock1",
+        "settings":[
+          {
+          "type":"text",
+            "id":"ListText1",
+            "label":"add text",
+            "default":"add list text"
+          }
+           
+         ]
+      }
+    ],
+       "presets": [
+    {
+      "name": "Text and img detail1",
+      "blocks":[
+            {
+               "type":"productblock1"
+            }
+      ]
+    }
+  ]
+
+    
+  }
+{% endschema %}
+
+
+{% stylesheet %}
+  .btn-2{
+    font-size: .8rem;
+    text-align: center;
+    padding: 10px 20px;
+    background: #fc6539;
+    color: #fff;
+    border: 1px solid #fff;
+    border-radius: 5%;
+}
+  .all-content2 {
+    background-color: #f7ecec;
+
+}
+.product-detail-2 p, li{
+    color: #636262;
+    
+} 
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

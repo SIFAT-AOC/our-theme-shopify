@@ -1,0 +1,402 @@
+<style>
+
+  .c-l-1-h-t{
+     text-align:center;
+           }.c-l-6-t-l-2, .c-l-6-t-r-2, .c-l-6-b-l-2, .c-l-6-b-r-2 h2, * h2 {
+    width: 100%;
+}
+   .c-l-1-overlay{
+      position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background-color: rgba(0, 0, 0, 0.2);
+   }
+   a{
+     text-decoration:none;
+   }
+         .c-l-1-img1 {
+           height: 505px;
+         }
+         .c-l-1-img2 {
+           height: 315px;
+         }
+         .c-l-1-img3{
+           height:410px;
+         }
+         .c-l-1-img4{
+           height:410px;
+         }
+                   .c-l-1-img-container {
+                     position: relative;
+                   }
+                   .c-l-1-img-container .c-l-1-imgTi {
+                     position: absolute;
+                     top: 50%;
+                     left: 50%;
+                     transform: translate(-50%, -50%);
+                     padding: 25px;
+                     text-align: left;
+                     height: auto;
+                     display: block;
+                     width:100%;
+                   }
+
+                   .c-l-1-p-m {
+                     margin-bottom: 10px;
+                     padding: 0px 5px;
+                   }
+
+                   .c-l-1-img-container {
+                     overflow: hidden;
+                   }
+                   .c-l-1-img-container:hover img {
+                     transform: scale(1.1);
+                     transition: transform 0.9s ease;
+                     z-index: 1;
+                   }
+                   /* hover effect css code  */
+                   .c-l-1-imgeEffect {
+                     position: relative;
+                     overflow: hidden;
+                   }
+
+                   .c-l-1-imgeEffect::before,
+                   .c-l-1-imgeEffect::after,
+                   .c-l-1-imgeEffect > .top-right::before,
+                   .c-l-1-imgeEffect > .top-right::after,
+                   .c-l-1-imgeEffect > .bottom-left::before,
+                   .c-l-1-imgeEffect > .bottom-left::after {
+                     content: "";
+                     position: absolute;
+                     width: 50%;
+                     height: 50%;
+                     background-color: transparent;
+                     opacity: 0.9;
+                     transform-origin: center;
+                     transition: all 0.5s ease-out;
+                     z-index: 1;
+                     opacity: 0;
+                   }
+                   .c-l-1-imgeEffect > img {
+                     display: block;
+                     width: 100%;
+                     height: auto;
+                     transition: all 0.4s ease-out;
+                     z-index: 1;
+                   }
+
+                   .c-l-1-imgeEffect::before {
+                     top: 0;
+                     left: 0;
+                     background-color: transparent;
+                   }
+
+                   .c-l-1-imgeEffect::after {
+                     bottom: 0;
+                     right: 0;
+                     background-color: transparent;
+                   }
+
+                   .c-l-1-imgeEffect > .top-right::before {
+                     top: 0;
+                     right: 0;
+                   }
+
+                   .c-l-1-imgeEffect > .top-right::after {
+                     bottom: 0;
+                     right: 0;
+                   }
+
+                   .c-l-1-imgeEffect > .bottom-left::before {
+                     top: 0;
+                     left: 0;
+                   }
+
+                   .c-l-1-imgeEffect > .bottom-left::after {
+                     bottom: 0;
+                     left: 0;
+                   }
+
+                   .c-l-1-imgeEffect > img {
+                     display: block;
+                     width: 100%;
+                     height: auto;
+                     /* filter: blur(4px); */
+                     transition: all 0.3s ease-out;
+                     z-index: 1;
+                   }
+
+                   .c-l-1-imgeEffect:hover::before,
+                   .c-l-1-imgeEffect:hover::after,
+                   .c-l-1-imgeEffect:hover > .top-right::before,
+                   .c-l-1-imgeEffect:hover > .top-right::after,
+                   .c-l-1-imgeEffect:hover > .bottom-left::before,
+                   .c-l-1-imgeEffect:hover > .bottom-left::after {
+                     transform: scale(1.5);
+                     opacity: 1;
+                   }
+
+                   .c-l-1-imgeEffect:hover::before {
+                     background-color: rgba(249, 245, 245, 0.911);
+                     transform: translateX(-100%) translateY(-100%);
+                   }
+
+                   .c-l-1-imgeEffect:hover::after {
+                     background-color: rgba(249, 245, 245, 0.911);
+                     transform: translateX(100%) translateY(100%);
+                   }
+
+                   .c-l-1-imgeEffect:hover > .top-right::before {
+                     background-color: rgba(249, 245, 245, 0.911);
+                     transform: translateX(100%) translateY(-100%);
+                   }
+
+                   .c-l-1-imgeEffect:hover > .top-right::after {
+                     background-color: rgba(249, 245, 245, 0.911);
+                     transform: translateX(100%) translateY(100%);
+                   }
+
+                   .c-l-1-imgeEffect:hover > .bottom-left::before {
+                     background-color: rgba(249, 245, 245, 0.911);
+                     transform: translateX(-100%) translateY(-100%);
+                   }
+
+                   .c-l-1-imgeEffect:hover > .bottom-left::after {
+                     background-color: rgba(254, 253, 253, 0.911);
+                     transform: translateX(-100%) translateY(100%);
+                   }
+
+                   .c-l-1-imgeEffect:hover > img {
+                     /* filter: blur(0); */
+                     opacity: 0.9;
+                     transform: scale(1.2);
+
+                   }
+
+         /* Media queries for different screen sizes */
+         @media only screen and (max-width: 767px) {
+           /* Mobile */
+           .c-l-1-img1 {
+             height: 310px;
+           }
+           .c-l-1-img2 {
+             height: 200px;
+           }  .c-l-1-img3,.c-l-1-img4{
+           height:254px;
+         }
+            .c-l-1-p-m {
+                         margin-bottom: 7px;
+   padding: 0px 4px;
+                   }
+         }
+
+         @media only screen and (min-width: 768px) and (max-width: 991px) {
+           /* Tablet */
+          .c-l-1-img1 {
+             height: 330px;
+           }
+           .c-l-1-img2 {
+             height: 220px;
+           }
+            .c-l-1-img3,.c-l-1-img4{
+           height:280px;
+         }
+         }
+
+         @media only screen and (min-width: 992px) and (max-width: 1199px) {
+           /* Laptop */
+           .c-l-1-img1 {
+             height: 436px;
+           }
+           .c-l-1-img2 {
+             height: 274px;
+           }  .c-l-1-img3,.c-l-1-img4{
+           height:354px;
+         }
+         }
+
+         @media only screen and (min-width: 1200px) {
+           /* Monitor */
+           .c-l-1-img1 {
+             height: 505px;
+           }
+           .c-l-1-img2 {
+             height: 315px;
+           }
+         }
+</style>
+
+{% assign listcollection = collections[section.settings.collection] %}
+{% assign listcollection1 = collections[section.settings.collection1] %}
+{% assign listcollection2 = collections[section.settings.collection2] %}
+{% assign listcollection3 = collections[section.settings.collection3] %}
+
+<div class=" mt-3 mt-md-4 container">
+  <h2 class="c-l-1-h-t my-md-4 my-3" style="color:  {{section.settings.c-l-1-h-c-t}}; text-align:center;  text-overflow: ellipsis;
+         white-space: nowrap;
+         overflow: hidden;">{{ section.settings.c-l-1-h-Te}}</h2>
+  <div class="row d-flex   justify-content-between">
+    <div class="col-6  h-100">
+      <div class="row h-100 d-flex flex-column align-items-end  justify-content-between">
+        <div class="  c-l-1-p-m  col-md-12    c-l-1-img1">
+          <a href="{{listcollection.url}}">
+          <div class="c-l-1-img-container c-l-1-imgeEffect image-overlay  h-100">
+            <img src="{{ listcollection.featured_image | img_url: 'master' }}"
+              class=" w-100 h-100"
+              alt=""style=" object-fit:cover;">
+            <div class="top-left"></div>
+            <div class="top-right"></div>
+            <div class="bottom-left"></div>
+            <div class="bottom-right"></div>
+              
+            <div class="c-l-1-imgTi">
+                <h3 style="color:{{section.settings.c-l-1-c-1}};">{{ listcollection.title }}</h3>
+            </div>
+            <div class="c-l-1-overlay"></div>
+          </div>
+            </a>
+        </div>
+        <div class="  c-l-1-p-m  col-md-12  c-l-1-img2">
+        <a href="{{  listcollection1.url}}">
+          <div class="c-l-1-img-container  c-l-1-imgeEffect image-overlay  h-100">
+            <img src="{{ listcollection1.featured_image | img_url: 'master' }}"
+              class=" w-100 h-100"
+              alt=""
+              style=" object-fit:cover;" >
+            <div class="top-left"></div>
+            <div class="top-right"></div>
+            <div class="bottom-left"></div>
+            <div class="bottom-right"></div>
+            <div class="c-l-1-imgTi">
+              
+               <h3 style="color:  {{section.settings.c-l-1-c-2}};">{{ listcollection.title }}</h3>
+            </div>
+            <div class="c-l-1-overlay"></div>
+          </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="col-6 h-100">
+      <div class="row d-flex flex-column justify-content-between h-100">
+        <div class="  c-l-1-p-m  col-md-12   c-l-1-img3 ">
+          <a href="{{  listcollection2.url}}">
+          <div class="c-l-1-img-container c-l-1-imgeEffect image-overlay h-100">
+            <img
+              src="{{ listcollection2.featured_image | img_url: '' }}"
+              class=" w-100 h-100"
+              alt=""
+              style=" object-fit:cover;"
+            >
+            <div class="top-left"></div>
+            <div class="top-right"></div>
+            <div class="bottom-left"></div>
+            <div class="bottom-right"></div>
+            <div class="c-l-1-imgTi">
+              
+                <h3 style="color:  {{section.settings.c-l-1-c-3}};">{{ listcollection2.title }}</h3>
+            </div>
+            <div class="c-l-1-overlay"></div>
+          </div>
+        </a>
+        </div>
+        <div class="  c-l-1-p-m  col-md-12 c-l-1-img4">
+           <a href="{{  listcollection3.url}}">
+          <div class="c-l-1-img-container c-l-1-imgeEffect image-overlay h-100">
+            <img
+              src="{{ listcollection3.featured_image | img_url: '' }}"
+              class=" w-100 h-100"
+              alt=""
+              style=" object-fit:cover;"
+            >
+            <div class="top-left"></div>
+            <div class="top-right"></div>
+            <div class="bottom-left"></div>
+            <div class="bottom-right"></div>
+            <div class="c-l-1-imgTi">
+             
+                <h3 style="color:  {{section.settings.c-l-1-c-4}};">{{ listcollection3.title }}</h3>
+            </div>
+            <div class="c-l-1-overlay"></div>
+          </div>
+        </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Collection-List-1",
+  "settings": [
+
+     {
+               "type":"text",
+               "id":"c-l-1-h-Te",
+               "label":"add text",
+               "default":"add your title here"
+            },
+     {
+  "type": "color",
+  "id": "c-l-1-c-1",
+  "label": "Title Color1",
+  "default": "#000000"
+},
+     {
+  "type": "color",
+  "id": "c-l-1-h-c-t",
+  "label": "Section Header",
+  "default": "#000000"
+},
+     {
+  "type": "color",
+  "id": "c-l-1-c-2",
+  "label": "Title Color2",
+  "default": "#000000"
+},
+     {
+  "type": "color",
+  "id": "c-l-1-c-3",
+  "label": "Title Color3",
+  "default": "#000000"
+},
+     {
+  "type": "color",
+  "id": "c-l-1-c-4",
+  "label": "Title Color4",
+  "default": "#000000"
+},
+
+      {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+      {
+      "type": "collection",
+      "id": "collection1",
+      "label": "Collection"
+    },
+        {
+      "type": "collection",
+      "id": "collection2",
+      "label": "Collection"
+    },
+        {
+      "type": "collection",
+      "id": "collection3",
+      "label": "Collection"
+    }
+
+  ],
+  "presets": [
+    {
+      "name": "Collection-List-1"
+
+    }
+  ]
+}
+{% endschema %}

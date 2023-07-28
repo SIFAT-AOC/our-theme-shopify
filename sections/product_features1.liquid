@@ -1,0 +1,105 @@
+
+            
+            <section>
+               <div class=" p-3  ">
+            <div class="row ">
+                <div class="col-md-6 mb-4 order-first order-lg-last order-md-last ">
+                   <div class="d-flex justify-content-center align-content-center flex-column">
+                      <img src="{{ section.settings.productImg | img_url: '' }}" alt="" class="w-100">
+                   </div>
+                </div>
+                <div class="col-md-6  order-last order-lg-first order-md-first d-flex flex-column justify-content-center align-items-start">
+                    <h1 class="fs-1 mb-4">
+                      {{ section.settings.smartTitle }}
+                      
+                    </h1>
+                    <p class="text-justify mb-4">
+                      {{ section.settings.smartPera1 }}
+                    </p>
+                  {% for block in section.blocks %}
+                    <div class="d-flex justify-content-center align-items-center mb-3">
+                        <div class="d-flex justify-content-center align-items-center ">
+                              <img src="{{ block.settings.featureImg1 | img_url: '120' }}" alt="" class="rounded-circle ">
+                        </div>
+                        <div class="ms-4">
+                            <h1 class="fs-4">
+                              {{ block.settings.feature1Title }}
+                            </h1>
+                            <p class="fs-6 text-justify">
+                               {{ block.settings.feature1pera }}
+                            </p>
+                        </div>
+                    </div>
+                   {% endfor %}
+                  
+                </div>
+               
+            </div>
+        </div>
+            </section>
+
+
+{% schema %}
+  {
+    "name": "Product Features 1",
+    "settings": [
+         {
+  "type": "image_picker",
+  "id": "productImg",
+  "label": "image"
+      },
+       {
+               "type":"text",
+               "id":"smartTitle",
+               "label":"addTitle",
+               "default":"add title"
+             },
+             {
+               "type":"text",
+               "id":"smartPera1",
+               "label":"add Description",
+               "default":"add Description"
+             }
+    ],
+        "blocks":[
+         {
+           "name":"featureBenefit1",
+           "type":"featureBenefit1",
+           "settings":[
+             {
+            "type": "image_picker",
+            "id": "featureImg1",
+            "label": "image"
+            },
+             {
+               "type":"text",
+               "id":"feature1Title",
+               "label":"addTitle",
+               "default":"add title"
+             },
+             {
+               "type":"text",
+               "id":"feature1pera",
+               "label":"add Description",
+               "default":"add Description"
+             }
+           ]
+         } 
+        ],   
+     "presets": [
+    {
+      "name": "Product Features 1"
+
+ 
+    }
+  ]
+
+    
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

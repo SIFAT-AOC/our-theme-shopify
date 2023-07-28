@@ -1,0 +1,152 @@
+<style> 
+.fonts-si2{
+    font-size: 75px;
+    color: #06264b;
+    font-weight: 700;
+}
+.banner-hei{
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+   background-attachment: fixed;
+
+    background-color: #d2eaea;
+}
+.font-si1{
+    font-size: 30px;
+    color: #fc6539;
+    font-weight: 400;
+}
+.peragraph{
+    
+    color: #06264b;
+    font-weight: 400;
+}
+.button-1{
+    background: #06264b;
+    color: #fc6539;
+    padding: 10px 30px;
+    font-size: 25px;
+    border-radius: 35px;
+    border: none;
+}
+
+/* media quary responsive site */
+@media screen and (max-width: 768px){
+    .fonts-si2{
+        font-size: 50px;
+    }
+    .font-si1{
+        font-size: 20px;
+        margin-top: 20px;
+    }
+    
+    
+}
+    @media screen and (max-width: 1200px) {
+        .fonts-si2{
+            font-size: 60px;
+        }
+        .button-1{
+            background: #06264b;
+            color: #fc6539;
+            padding: 10px 30px;
+            font-size: 30px;
+            border-radius: 35px;
+            border: none;
+        }
+        .font-si1{
+            
+            font-size: 36px;
+            color: #fc6539;
+            font-weight: 400;
+        }
+    }
+    @media screen and (max-width: 600px) {
+        .fonts-si2{
+            font-size: 43px;
+        }
+        .button-1{
+            background: #06264b;
+            color: #fc6539;
+            padding: 10px 20px;
+            font-size: 20px;
+            border-radius: 35px;
+            border: none;
+        }
+        .font-si1{
+            
+            font-size: 25px;
+            color: #fc6539;
+            font-weight: 400;
+        }
+    }
+</style>              
+
+
+
+   
+   <main>
+        <div class=" p-3 banner-hei">
+            <div class="row ">
+                <div class="col-md-6 col-12 px-3 my-md- d-flex justify-content-center flex-column align-items-start">
+                    <h1 class=" fonts-si2">
+                      {{ section.settings.title }}
+                    </h1>
+                    <p class="fs-2 peragraph">Experience the decibels like your ears deserve to . Safe for the ears, very for the heart. Atreat to your ears.</p>
+                    <button class="mt-3 button-1">Explore More</button>
+                </div>
+                <div class="col-md-6 col-12 px-3 d-flex flex-column justify-content-center align-content-center">
+                    <img src="{{ section.settings.uploadimage | img_url:"" }}" class=" img-fluid" alt="">
+                </div>
+            </div>
+        </div>
+      
+    </main>
+
+{% schema %}
+  {
+    "name": "Image And Text",
+    "settings": [
+           {
+  "type": "image_picker",
+  "id": "uploadimage",
+  "label": "image"
+},
+
+                {
+  "type": "text",
+  "id": "title",
+  "label": "Enter Your Title",
+   "default": "Add your Title"
+
+                  
+}
+
+      
+      
+      
+  
+    ],
+
+        "presets": [
+    {
+      "name": "Image And Text"
+
+ 
+    }
+  ]
+
+    
+  }
+{% endschema %}
+
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
+

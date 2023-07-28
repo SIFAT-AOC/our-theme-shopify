@@ -1,0 +1,466 @@
+ <style>
+ 
+ .c-l-13-h-t{
+     text-align:center;
+           }
+   .c-l-13-overlay{
+      position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background-color: rgba(0, 0, 0, 0.2);
+   }
+   a{
+     text-decoration:none;
+   }
+         .c-l-13-img1 {
+           height: 570px;
+         }
+         .c-l-13-img2 {
+           height: 250px;
+         }
+         .c-l-13-img3{
+           height:250px;
+         }
+         .c-l-13-img4{
+           height:570px;
+         }
+                   .c-l-13-img-container {
+                     position: relative;
+                   }
+  .c-l-13-img-container .c-l-13-imgTi {
+	position: absolute;
+	top: 85%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	padding: 9px 10px;
+	text-align: center;
+	height: auto;
+	display: block;
+	width: 85%;
+	background-color: white;
+}
+
+.c-l-13-img-container .c-l-13-imgTi2 {
+	position: absolute;
+	top: 84%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	padding: 8px 10px;
+	text-align: center;
+	/* height: auto; */
+	display: block;
+	width: 85%;
+	background-color: white;
+}
+                   .c-l-13-p-m {
+                     margin-bottom: 10px;
+                     padding: 0px 5px;
+                   }
+
+                   .c-l-13-img-container {
+                     overflow: hidden;
+                   }
+                   .c-l-13-img-container:hover img {
+                     transform: scale(1.1);
+                     transition: transform 0.9s ease;
+                     z-index: 1;
+                   }
+                   /* hover effect css code  */
+                   .c-l-13-imgeEffect {
+                     position: relative;
+                     overflow: hidden;
+                   }
+
+                   .c-l-13-imgeEffect::before,
+                   .c-l-13-imgeEffect::after,
+                   .c-l-13-imgeEffect > .top-right::before,
+                   .c-l-13-imgeEffect > .top-right::after,
+                   .c-l-13-imgeEffect > .bottom-left::before,
+                   .c-l-13-imgeEffect > .bottom-left::after {
+                     content: "";
+                     position: absolute;
+                     width: 50%;
+                     height: 50%;
+                     background-color: transparent;
+                     opacity: 0.9;
+                     transform-origin: center;
+                     transition: all 0.5s ease-out;
+                     z-index: 1;
+                     opacity: 0;
+                   }
+                   .c-l-13-imgeEffect > img {
+                     display: block;
+                     width: 100%;
+                     height: auto;
+                     transition: all 0.4s ease-out;
+                     z-index: 1;
+                   }
+
+                   .c-l-13-imgeEffect::before {
+                     top: 0;
+                     left: 0;
+                     background-color: transparent;
+                   }
+
+                   .c-l-13-imgeEffect::after {
+                     bottom: 0;
+                     right: 0;
+                     background-color: transparent;
+                   }
+
+                   .c-l-13-imgeEffect > .top-right::before {
+                     top: 0;
+                     right: 0;
+                   }
+
+                   .c-l-13-imgeEffect > .top-right::after {
+                     bottom: 0;
+                     right: 0;
+                   }
+
+                   .c-l-13-imgeEffect > .bottom-left::before {
+                     top: 0;
+                     left: 0;
+                   }
+
+                   .c-l-13-imgeEffect > .bottom-left::after {
+                     bottom: 0;
+                     left: 0;
+                   }
+
+                   .c-l-13-imgeEffect > img {
+                     display: block;
+                     width: 100%;
+                     height: auto;
+                     /* filter: blur(4px); */
+                     transition: all 0.3s ease-out;
+                     z-index: 1;
+                   }
+
+                   .c-l-13-imgeEffect:hover::before,
+                   .c-l-13-imgeEffect:hover::after,
+                   .c-l-13-imgeEffect:hover > .top-right::before,
+                   .c-l-13-imgeEffect:hover > .top-right::after,
+                   .c-l-13-imgeEffect:hover > .bottom-left::before,
+                   .c-l-13-imgeEffect:hover > .bottom-left::after {
+                     transform: scale(1.5);
+                     opacity: 1;
+                   }
+
+                   .c-l-13-imgeEffect:hover::before {
+                     background-color: rgba(249, 245, 245, 0.911);
+                     transform: translateX(-100%) translateY(-100%);
+                   }
+
+                   .c-l-13-imgeEffect:hover::after {
+                     background-color: rgba(249, 245, 245, 0.911);
+                     transform: translateX(100%) translateY(100%);
+                   }
+
+                   .c-l-13-imgeEffect:hover > .top-right::before {
+                     background-color: rgba(249, 245, 245, 0.911);
+                     transform: translateX(100%) translateY(-100%);
+                   }
+
+                   .c-l-13-imgeEffect:hover > .top-right::after {
+                     background-color: rgba(249, 245, 245, 0.911);
+                     transform: translateX(100%) translateY(100%);
+                   }
+
+                   .c-l-13-imgeEffect:hover > .bottom-left::before {
+                     background-color: rgba(249, 245, 245, 0.911);
+                     transform: translateX(-100%) translateY(-100%);
+                   }
+
+                   .c-l-13-imgeEffect:hover > .bottom-left::after {
+                     background-color: rgba(254, 253, 253, 0.911);
+                     transform: translateX(-100%) translateY(100%);
+                   }
+
+                   .c-l-13-imgeEffect:hover > img {
+                     /* filter: blur(0); */
+                     opacity: 0.9;
+                     transform: scale(1.2);
+
+                   }
+
+         /* Media queries for different screen sizes */
+         @media only screen and (max-width: 767px) {
+           /* Mobile */
+           .c-l-13-img1 {
+             height: 310px;
+           }
+           .c-l-13-img2 {
+             height: 200px;
+           }  .c-l-13-img3,.c-l-13-img4{
+           height:254px;
+         }
+            .c-l-13-p-m {
+                         margin-bottom: 7px;
+   padding: 0px 4px;
+                   }
+    .c-l-13-img-container .c-l-13-imgTi {
+    position: absolute;
+    top: 88%;
+    left: 54%;
+    transform: translate(-50%, -50%);
+    padding: 7px 8px;
+    text-align: center;
+    height: auto;
+    display: block;
+    width: 58%;
+    background-color: white;
+}.c-l-13-img-container .c-l-13-imgTi2 {
+    position: absolute;
+    top: 80%;
+    left: 51%;
+    transform: translate(-50%, -50%);
+    padding: 6px 8px;
+    text-align: center;
+    height: auto;
+    display: block;
+    width: 80%;
+    background-color: white;
+}
+         }
+
+         @media only screen and (min-width: 768px) and (max-width: 991px) {
+           /* Tablet */
+          .c-l-13-img1 {
+             height: 330px;
+           }
+           .c-l-13-img2 {
+             height: 220px;
+           }
+            .c-l-13-img3,.c-l-13-img4{
+           height:280px;
+         }
+         }
+
+         @media only screen and (min-width: 992px) and (max-width: 1199px) {
+           /* Laptop */
+           .c-l-13-img1 {
+             height: 436px;
+           }
+           .c-l-13-img2 {
+             height: 274px;
+           }  .c-l-13-img3,.c-l-13-img4{
+           height:354px;
+         }
+         }
+
+    </style>
+  {%- assign collection1 = collections[section.settings.collection1] -%}
+ {%- assign collection2 = collections[section.settings.collection2] -%}
+ {%- assign collection3 = collections[section.settings.collection3] -%}
+ {%- assign collection4 = collections[section.settings.collection4] -%}
+ {%- assign collection5 = collections[section.settings.collection5] -%}
+<div class=" mt-3 mt-md-4 container">
+    <h2 class="c-l-13-h-t my-md-4 my-3" style="color:  {{section.settings.c-l-13-h-t-c-1}}; text-align:center;  text-overflow: ellipsis;
+           white-space: nowrap;
+           overflow: hidden;">{{ section.settings.c-l-13-h-T}}</h2>
+    <div class="row d-flex   justify-content-between">
+      <div class="col-md-6 col-12 h-100">
+        <div class="row h-100 d-flex flex-column align-items-end  justify-content-between">
+          <div class="  c-l-13-p-m  col-md-12    c-l-13-img1">
+            <a href="{{collection1.url}}">
+            <div class="c-l-13-img-container c-l-13-imgeEffect image-overlay  h-100">
+              <img src="{{ collection1.featured_image | img_url:"master"}}"
+                class=" w-100 h-100"
+                alt=""style=" object-fit:cover;">
+              <div class="top-left"></div>
+              <div class="top-right"></div>
+              <div class="bottom-left"></div>
+              <div class="bottom-right"></div>
+                
+              <div class="c-l-13-imgTi">
+                  <h3 class="m-0" style="color:{{section.settings.c-l-13-c-1}};">{{ collection1.title }}</h3>
+              </div>
+              <!-- <div class="c-l-13-overlay"></div> -->
+            </div>
+              </a>
+          </div>
+        <div class="col-md-12">
+            <div class="row h-100 d-flex  align-items-end  justify-content-between">
+            <div class="  c-l-13-p-m  col-6 c-l-13-img2">
+                <a href="{{  collection2.url}}">
+                  <div class="c-l-13-img-container  c-l-13-imgeEffect image-overlay  h-100">
+                    <img src="{{ collection2.featured_image | img_url:"master"}}"
+                      class=" w-100 h-100"
+                      alt=""
+                      style=" object-fit:cover;" >
+                    <div class="top-left"></div>
+                    <div class="top-right"></div>
+                    <div class="bottom-left"></div>
+                    <div class="bottom-right"></div>
+                    <div class="c-l-13-imgTi2">
+                      
+                       <h3 class="m-0" style="color:  {{section.settings.c-l-13-c-2}};">{{ collection2.title }}</h3>
+                    </div>
+                    <!-- <div class="c-l-13-overlay"></div> -->
+                  </div>
+                  </a>
+                </div>
+            <div class="  c-l-13-p-m  col-6 c-l-13-img2">
+                <a href="{{  collection3.url}}">
+                  <div class="c-l-13-img-container  c-l-13-imgeEffect image-overlay  h-100">
+                    <img src="{{ collection3.featured_image | img_url:"master"}}"
+                      class=" w-100 h-100"
+                      alt=""
+                      style=" object-fit:cover;" >
+                    <div class="top-left"></div>
+                    <div class="top-right"></div>
+                    <div class="bottom-left"></div>
+                    <div class="bottom-right"></div>
+                    <div class="c-l-13-imgTi2">
+                      
+                       <h3 class="m-0" style="color:  {{section.settings.c-l-13-c-3}};">{{collection3.title}}</h3>
+                    </div>
+                    <!-- <div class="c-l-13-overlay"></div> -->
+                  </div>
+                  </a>
+                </div>
+                </div>
+        </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-12 h-100">
+        <div class="row d-flex flex-column justify-content-between h-100">
+          <div class="  c-l-13-p-m  col-md-12   c-l-13-img3 ">
+            <a href="{{  listcollection4.url}}">
+            <div class="c-l-13-img-container c-l-13-imgeEffect image-overlay h-100">
+             <img src="{{ collection4.featured_image | img_url:"master"}}"
+                class=" w-100 h-100"
+                alt=""
+                style=" object-fit:cover;"
+              >
+              <div class="top-left"></div>
+              <div class="top-right"></div>
+              <div class="bottom-left"></div>
+              <div class="bottom-right"></div>
+              <div class="c-l-13-imgTi">
+                
+                  <h3 class="m-0" style="color:  {{section.settings.c-l-13-c-5}};">{{ collection4.title }}</h3>
+              </div>
+              <!-- <div class="c-l-13-overlay"></div> -->
+            </div>
+          </a>
+          </div>
+          <div class="  c-l-13-p-m  col-md-12 c-l-13-img4">
+             <a href="{{  listcollection5.url}}">
+            <div class="c-l-13-img-container c-l-13-imgeEffect image-overlay h-100">
+             <img src="{{ collection5.featured_image | img_url:"master"}}"
+                class=" w-100 h-100"
+                alt=""
+                style=" object-fit:cover;"
+              >
+              <div class="top-left"></div>
+              <div class="top-right"></div>
+              <div class="bottom-left"></div>
+              <div class="bottom-right"></div>
+              <div class="c-l-13-imgTi">
+               
+                  <h3 class="m-0" style="color:  {{section.settings.c-l-13-c-4}};">{{ collection5.title }}</h3>
+              </div>
+              <!-- <div class="c-l-13-overlay"></div> -->
+            </div>
+          </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+{% schema %}
+ {
+  "name": "Collection-List-13",
+  "settings": [
+
+     {
+               "type":"text",
+               "id":"c-l-13-h-T",
+               "label":"add text",
+               "default":"Add Section Title"
+            },
+     {
+  "type": "color",
+  "id": "c-l-13-h-t-c-1",
+  "label": "Section Header",
+  "default": "#000000"
+},
+     {
+  "type": "color",
+  "id": "c-l-13-c-1",
+  "label": "Title Color1",
+  "default": "#000000"
+},
+     {
+  "type": "color",
+  "id": "c-l-13-c-2",
+  "label": "Title Color2",
+  "default": "#000000"
+},
+     {
+  "type": "color",
+  "id": "c-l-13-c-3",
+  "label": "Title Color3",
+  "default": "#000000"
+},
+     {
+  "type": "color",
+  "id": "c-l-13-c-4",
+  "label": "Title Color4",
+  "default": "#000000"
+},
+     {
+  "type": "color",
+  "id": "c-l-13-c-5",
+  "label": "Title Color5",
+  "default": "#000000"
+},
+
+      {
+      "type": "collection",
+      "id": "collection1",
+      "label": "Collection1"
+    },
+      {
+      "type": "collection",
+      "id": "collection2",
+      "label": "Collection2"
+    },
+        {
+      "type": "collection",
+      "id": "collection3",
+      "label": "Collection3"
+    }
+    ,
+        {
+      "type": "collection",
+      "id": "collection4",
+      "label": "Collection4"
+    }
+    ,
+        {
+      "type": "collection",
+      "id": "collection5",
+      "label": "Collection5"
+    }
+
+  ],
+  "presets": [
+    {
+      "name": "Collection-List-13"
+
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

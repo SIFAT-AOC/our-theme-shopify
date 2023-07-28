@@ -1,0 +1,165 @@
+<style>
+
+.contetnImage{
+    height: 90px;
+    width: 90px;
+}
+.unique-full-content{
+    background-color: #f8f8f8;
+}
+.unique-content{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(2,1fr);
+    grid-gap: 8px;
+    
+}
+  .unique-discrip{
+   font-size: 13px;
+    color: #000;
+  }
+  .unique-title{
+    font-size: 17px;
+    color: #000;
+    
+  }
+  .unique-heading{
+   font-size: 35px;
+    color: #000;
+    font-weight: 750;
+  }
+@media all and (max-width: 768px) {
+       
+        .contetnImage{
+            height: 49px;
+            width: 49px;
+        }
+   .unique-heading{
+   font-size: 29px;
+    color: #000;
+    font-weight: 750;
+  }
+  .unique-discrip{
+   font-size: 8px;
+    color: #000;
+  }
+  .unique-title{
+    font-size: 12px;
+    color: #000;
+    
+  }
+    }
+    
+
+
+</style>
+
+  <div class="unique-full-content w-100 py-3 px-1 px-md-5 py-md-5 d-flex justify-content-center align-items-center">
+        <div class="row container">
+            <div class="col-md-6 col-12 position-relative mt-4">
+                <h1 class="unique-heading mb-3 mb-md-2">
+                      {{ section.settings.UniqueHeader1 }}  
+                </h1>
+                <p class=" fs-2 mb-5 mb-md-5">
+                     {{ section.settings.UniqueDescription1 }}
+                </p>
+              <div class="unique-content mt-5">
+                    {% for block in section.blocks %}
+                    <!-- content- -->
+                    <div class="unique-content-item  d-flex justify-content-start align-items-center ">
+                        <div class="unique-content-item-icon ">
+                             <img src="{{ block.settings.Unique-block-img | img_url:'' }}" class="contetnImage me-md-4 me-3" alt="">
+                        </div>
+                        <div class="unique-content-item-text ">
+                            <p class="unique-discrip w-100">
+                      {{ block.settings.Unique-block-Header1 }}
+                            </p>
+                            <h3 class=" unique-title fw-bold  w-100">
+               {{ block.settings.Unique-blockDescription1 }}
+                            </h3>
+                        </div>
+                </div>
+                  
+                 {% endfor %} 
+          
+              </div>
+        </div>
+        <div class="col-md-6 col-12  d-flex justify-content-center align-items-center   mt-4">
+            <img src="{{ section.settings.Unique_img | img_url:"" }}"  class="w-100" alt="">
+        </div>
+        </div>
+    </div>
+
+
+{% schema %}
+  {
+    "name": "product featuresBenifits5",
+    "settings": [
+         {           
+  "type": "image_picker",
+  "id": "Unique_img",
+  "label": "image"
+},
+        {           
+  "type": "text",
+  "id": "UniqueHeader1",
+  "label": "header",
+  "default":"add product header"
+},
+        {           
+  "type": "text",
+  "id": "UniqueDescription1",
+  "label": "Description",
+  "default":"add product Description"
+}
+    ],
+    "blocks":[
+      {
+      "name":"feature5-block",
+        "type":"feature5-block",
+        "settings":[
+                  {           
+  "type": "image_picker",
+  "id": "Unique-block-img",
+  "label": "image"
+},
+        {           
+  "type": "text",
+  "id": "Unique-block-Header1",
+  "label": "small header",
+  "default":"add product small header"
+},
+        {           
+  "type": "text",
+  "id": "Unique-blockDescription1",
+  "label": "title",
+  "default":"add product title"
+}
+        ]
+      }
+    ],
+    "presets":[
+      {
+        "name":"product featuresBenifits 5",
+          "blocks":[
+                    {
+         "type":"feature5-block"
+          },
+        {
+         "type":"feature5-block"
+          },
+        {
+         "type":"feature5-block"
+          }
+          ]
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+ 
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

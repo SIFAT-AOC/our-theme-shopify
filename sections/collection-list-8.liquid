@@ -1,0 +1,200 @@
+
+ <style>
+   .c-l-6-t-l-2, .c-l-6-t-r-2, .c-l-6-b-l-2, .c-l-6-b-r-2 h2, * h2 {
+    width: 100%;
+}
+        .c-li-7-b-1 img{
+            border-radius: 2%;
+            object-fit: cover;
+        }.c-l-6-t-l-2, .c-l-6-t-r-2, .c-l-6-b-l-2, .c-l-6-b-r-2 h2, * h2 {
+    width: 100%;
+}
+        .c-li-7-b-2 img{
+            border-radius: 2%;
+            object-fit: cover;
+        }
+   .c-l-8-h-t{
+     color:{{section.settings.c-l-8-h-T-c}};
+  }
+        .c-li-7-b-1{
+            height: 198px;
+            position: relative;
+        }
+        .c-li-7-b-2{
+            height: 405px;
+            position: relative;
+        }
+        .c-li-7-d{
+            position: absolute;
+            left: 150px;
+            bottom: 10px;
+        }
+        .c-li-7-d-1{
+            position: absolute;
+            left: 50px;
+            bottom: 150px;
+        }
+         .c-li-7-d-2 a{
+           text-decoration:none;
+         }
+    .c-li-7-d-2 {
+	position: absolute;
+	left: 54px;
+	bottom: 32px;
+	width: 85%;
+	text-align: center;
+}
+.c-li-7-d-3 {
+    position: absolute;
+    left: 35px;
+    bottom: 50px;
+}
+
+        .c-li-7-d-3 a{
+            text-transform: uppercase;
+        }
+        .c-li-7-d-2 h1{
+            width: 70%;text-overflow: ellipsis;
+           white-space: nowrap;
+           overflow: hidden;
+        }
+        .c-li-7-d h3{
+            padding: 10px 25px;
+            border-radius: 8%;text-overflow: ellipsis;
+           white-space: nowrap;
+           overflow: hidden;
+        }
+    @media (max-width: 768px) {
+    .c-li-7-d-2 {
+    position: absolute;
+    left: 37px;
+    bottom: 25px;
+    width: 86%;
+}
+..c-li-7-d-2 {
+	position: absolute;
+	left: 14px;
+	bottom: 25px;
+	width: 86%;
+}
+    }
+    </style>
+{% assign listcollection1 = collections[section.settings.collection1] %}
+{% assign listcollection2 = collections[section.settings.collection2] %}
+{% assign listcollection3 = collections[section.settings.collection3] %}
+    <div class="container my-md-4 my-3">
+       <h2 class="  text-center my-md-4 my-3" style="text-overflow: ellipsis;
+           white-space: nowrap;
+           overflow: hidden;">{{ section.settings.c-l-8-h-T}}</h2>
+        <div class="row d-flex justify-content-between align-items-center">
+         
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-12 mb-3">
+                        <div class="c-li-7-b-2">
+                            <img src="{{ listcollection1.featured_image | img_url: 'master' }}" class="w-100 h-100" srcset="">
+                        <div class="c-li-7-d-1">
+                            <a href="{{listcollection1.url}}">
+        <h3 style="color:{{ section.settings.c-l-8-h-T-c-1 }};">{{ listcollection1.title }}</h3>
+  
+  </a>
+                        </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="row d-flex justify-content-between align-items-center">
+                    <div class="col-md-12 col-6 mb-3">
+                        <div class="c-li-7-b-1">
+                            <img src="{{ listcollection2.featured_image | img_url: 'master' }}" class="w-100 h-100" srcset="">
+                            <div class="c-li-7-d-2">
+                                 <a href="{{listcollection2.url}}">
+     <h3 class="text-md-start text-center" style="color:{{ section.settings.c-l-8-h-T-c-2 }};">{{ listcollection2.title }}</h3>
+  </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-6">
+                          <div class="c-li-7-b-1">
+                             <img src="{{ listcollection3.featured_image | img_url: 'master' }}" class="w-100 h-100" srcset="">
+
+                              <div class="c-li-7-d-2">
+                                 <a href="{{listcollection3.url}}">
+     
+                                 <h3 class="text-md-start text-center"  style="color:{{ section.settings.c-l-8-h-T-c-3 }};">{{ listcollection3.title }}</h3>
+  </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+
+{% schema %}
+  {
+    "name": "collectio-list-8",
+    "settings": [
+      {
+        "type":"text",
+        "id":"c-l-8-h-T",
+        "label":"Add Title",
+        "default":"Add Section Title"
+      },
+      {
+        "type":"color",
+        "id":"c-l-8-h-T-c",
+        "label":"add Text color",
+        "default":"#000000"
+        },
+      {
+        "type":"color",
+        "id":"c-l-8-h-T-c-1",
+        "label":"add Text color",
+        "default":"#000000"
+        },
+      {
+        "type":"color",
+        "id":"c-l-8-h-T-c-2",
+        "label":"add Text color",
+        "default":"#000000"
+        },
+      {
+        "type":"color",
+        "id":"c-l-8-h-T-c-3",
+        "label":"add Text color",
+        "default":"#000000"
+        },
+      {
+      "type": "collection",
+      "id": "collection1",
+      "label": "Collection1 (Recommanded Image Height 405px )"
+    },
+      {
+      "type": "collection",
+      "id": "collection2",
+      "label": "Collection-2 (Recommanded Image Height 198px )"
+    },
+      {
+      "type": "collection",
+      "id": "collection3",
+      "label": "Collection-3 (Recommanded Image Height 19px )"
+    }
+    ],
+     "presets": [
+    {
+      "name": "collection-List-8"
+    }
+  ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

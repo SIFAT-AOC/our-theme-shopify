@@ -1,0 +1,26 @@
+
+<img src="{{ section.settings.rightimage | img_url:"" }}" class=" img-fluid" alt="">
+{% schema %}
+  {
+    "name": "test features",
+    "settings": [
+{
+  "type":"image_picker",
+  "id" :"rightimage",
+  "label":"add image"
+}
+      
+    ],
+    "presets":[
+      {
+        "name":"test features"
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

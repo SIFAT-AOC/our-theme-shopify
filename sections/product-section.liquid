@@ -1,0 +1,98 @@
+
+ <section class="container my-md-5 my-3 py-md-5 py-3">
+  
+            <div class="row ">
+                <div class="col-md-6 col-12">
+                <div class="d-flex  justify-content-center align-items-center">
+                  <img src="{{section.settings.image | img_url: ''  }}" class="w-100" alt="" srcset="">
+                </div>
+                </div>
+            <div class="col-md-6 col-12  d-flex flex-column justify-content-center align-items-center">
+                    <h1 class="text-justify fs-2 fw-bolder  mb-md-5 mb-4 w-100">
+                       {{ section.settings.heading}}
+                    </h1>
+                        <h1 class="fs-2 fw-bold pt-md-4 pt-3 borderBottom w-100">
+                           {{ section.settings.pricing }}
+                        </h1>
+
+                        <button class="btn1 w-100 my-md-3 my-2">Add to cart</button>
+                        <button class="btn1 w-100 ">Buy Now</button>
+                </div>
+            </div>
+    </section>
+
+
+   
+{% schema %}
+  {
+    "name": " Add to cart Section",
+    "settings": [
+         {
+           "type": "image_picker",
+           "id": "image",
+           "label": "Image"
+         },
+        {
+  "type": "text",
+  "id": "heading",
+  "label": "Heading",
+  "default": "add product headingText"
+        },
+      {
+  "type": "text",
+  "id": "pricing",
+  "label": "Heading",
+  "default": "add product priceText"
+},
+
+{
+  "type": "url",
+  "id": "button_link",
+  "label": "Button link"
+}
+    
+     
+],
+    
+    "presets": [
+      {
+        "name": " Product Section price ",
+        "category": "Custom"
+        
+      }
+    ]
+  }
+{% endschema %}
+ 
+
+{% stylesheet %}
+  .borderBottom{
+   
+    border-top: 1px solid rgb(214, 212, 212);
+}
+.btn1{
+    background-color: white;
+    
+    font-weight: 700;
+    color:  rgb(179, 111, 165);
+    border: 2px solid rgb(179, 111, 165);
+    padding: 15px 20px;
+    text-transform: capitalize;
+    font-size: 20px;
+    transition: all .7s ease-in-out;
+}
+.btn1:hover{
+    background-color:   rgb(179, 111, 165);
+    font-size: ;
+    font-weight: 700;
+    color: white;
+    border: 2px solid rgb(179, 111, 165);
+    padding: 15px 20px;
+ text-transform: capitalize;
+    font-size: 26px;
+    transition: all .7s ease-in-out;
+}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

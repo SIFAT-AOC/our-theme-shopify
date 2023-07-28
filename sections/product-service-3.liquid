@@ -1,0 +1,117 @@
+<style>
+   .image{
+    height: 90px;
+    width: 90px;
+  }
+.service-content{
+  background-color: {{section.settings.SerBackgroundcolor}};
+ 
+}
+ 
+.text-colors{
+    color:rgb(137, 134, 134);
+    font-weight: 500;
+}
+</style>
+                            
+                            <div class=" service-content mx-auto my-md-5 my-3 ">
+                                <div class="row w-100">
+                                  {% for block in section.blocks %}
+                                    <div class=" col-md-4 col-12 d-flex flex-column justify-content-center align-items-center  mt-2 px-3">
+                                        <img src="{{ block.settings.serviceimage | img_url:'' }}"  alt="" class="image rounded-circle mb-md-3 mb-1 ">
+                          
+                                      <h1 class="fs-2 serviceTitle text-center mb-2  mb-md-3 mb-2" style="color:  {{block.settings.Sertitilecolor}};">
+                                            {{ block.settings.service_title }}
+                                        </h1>
+                                      <p class="fs-4 text-center serviceDescription  mb-md-3 mb-2" style="color: {{block.settings.serDescrcolor}};"> 
+                                        {{ block.settings.service_decription }}
+                                      </p>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+        
+                      
+{% schema %}
+  {
+    "name": "product-service-3",
+    "settings": [
+       {
+  "type": "color_background",
+  "id": "SerBackgroundcolor",
+   "label": "Background ",
+  "default": "#000000"
+}
+      
+    ],
+    "blocks":[
+      {
+      "name":"product service section 3",
+        "type":"service-block",
+        "settings":[
+          {
+          "type":"richtext",
+            "id":"service_title",
+            "label":"Add Title"
+          },
+          {
+            "type": "text",
+             "id":"service_decription",
+              "label":"Add description"
+            },
+           
+        {           
+        "type": "image_picker",
+        "id": "serviceimage",
+        "label": "image"
+      },
+            {
+  "type": "color",
+  "id": "Sertitilecolor",
+  "label": "Title Color",
+  "default": "#000000"
+},
+         {
+  "type": "color",
+  "id": "serDescrcolor",
+  "label": " Description Color",
+  "default": "#000000"
+}
+          
+        ]
+        
+      }
+    ],
+    "presets":[
+      {
+         "name":"product-service-3",
+         
+         "blocks":[
+            {
+              "type":"service-block"
+            },
+           {
+            "type":"service-block"
+           },
+           {
+            "type":"service-block"
+           },
+           {
+            "type":"service-block"
+           },
+           {
+            "type":"service-block"
+           }
+         ]
+      }
+      
+   ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+ 
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

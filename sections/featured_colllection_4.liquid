@@ -1,0 +1,308 @@
+<style>
+   .f-c-4-back-color{
+                background-color: #ededed;
+            }.c-l-6-t-l-2, .c-l-6-t-r-2, .c-l-6-b-l-2, .c-l-6-b-r-2 h2, * h2 {
+    width: 100%;
+}
+            .f-col-4-imgTit h3{text-overflow: ellipsis;
+         white-space: nowrap;
+         overflow: hidden;
+            }
+            .f-col-4-imgTit h3,p{
+              display:inline;
+            }
+   .f-col-4-imgTit p{
+  text-decoration: line-through;
+    color: #ff2f00e3;
+  }
+  .f-col-4-image img{
+    object-fit:cover;
+  }
+  .f-col-4-image{
+    height:130px;
+  }
+      @media only screen and (max-width: 768px) {
+           /* Responsive layout for mobile devices */
+                .f-col-4-image{
+    height:105px;
+  }
+         /* Tablet */
+         @media only screen and (min-width: 768px) and (max-width: 992px) {
+           /* Responsive layout for tablet devices */
+           .f-col-4-image{
+    height:200px;
+  }
+         }
+
+         /* Laptop */
+         @media only screen and (min-width: 992px) and (max-width: 1280px) {
+           /* Responsive layout for laptop devices */
+    .f-col-4-image{
+    height:130px;
+  }
+         }     /* Desktop */
+         @media only screen and (min-width: 1280px) {
+           /* Responsive layout for desktop devices */
+          .f-col-4-image{
+    height:110px;
+  }
+         }
+</style>
+<!--  <div class=" py-lg-5 py-md-4 py-3" > -->
+            <!-- f-c-4-back-color this class used just for background color and  -->
+            <div class="  container my-lg-5 my-3 my-md-4">
+              <h2 class="  text-center">{{ section.settings.f-c-4-h-t }}</h2>
+    <!--          এখানে আমরা প্রথমে একটি রো নিয়েছি যার ফলে আমরা স্ক্রীন এ টোটাল ১২ টা কলাম ব্যাবহার  করতে পারব  -->   
+              
+                  <!--    সম্পূর্ণ ১২ টা রো থেকে আমরা 4 টা কলাম বড় স্ক্রীন এর জন্য আর মিডিয়াম , ছোট স্ক্রীন এর জন্য সম্পূর্ণ ১২ ব্যাবহার করেছি পূর্বের রো এর বিতরে টোটাল ৩ টা কন্টেন্ট থাকবে-->
+                <div class="row d-flex justify-content-between">
+                    <!-- this row is the parent of the 3 column product items -->
+               
+                     <!--    সম্পূর্ণ ১২ টা রো থেকে আমরা ৪ টা কলামই বড় স্ক্রীন ,মিডিয়াম , ছোট স্ক্রীন এর জন্য সম্পূর্ণ ১২ ব্যাবহার করেছি-->
+                    <div class="col-lg-4 col-12">
+                        
+                        <h2 class="my-md-3 my-2 " style="color:{{ section.settings.f-c-4-t-1 }}"> {{ section.settings.First_heading}} </h2>
+                        <!-- this is first column -->
+                      <!--         আমরা সেকশন সেটিং এ  collection নামে একটি আইডি তৈরি  করেছি এই collection কে collections এর ARRAY তে রূপান্তর করে  collection নামের variable এ রাখা হয়েছে -->
+                       {% assign first_collection = collections[section.settings.collection1] %}
+
+                      <!--         ফরলুপ এর মাধমে collection নামের বেরিয়েবল থেকে products কে নিয়ে আশা হয়েছে  সেই সাথে একটি লিমিট দেওয়া হয়েছে যার মাধমে কতগুলো প্রোডাক্ট আশবে তা ডিলার করা হয়েছে  সেকশন সেটিং এ product_limit আইডি তৈরি  করে-->
+                      
+        {% for product in first_collection.products limit: section.settings.product_limit1 %} 
+                      
+                         <!--          এখানে আমরা col-lg-4 col-12 এর বিতর  একটি রো নিয়েছি যার ফলে আমরা স্ক্রীন এ টোটাল ১২ টা কলাম ব্যাবহার  করতে পারব  --> 
+                      
+                        <div class="row my-4 d-flex justify-content-between">
+                          
+                            <!-- this is the row inside the first column every column have 4 products  and for every products image  and it's detail we used a full row -->
+                                <!--    সম্পূর্ণ ১২ টা রো থেকে আমরা 4 টা কলাম বড় স্ক্রীন এর জন্য  মিডিয়াম , ছোট স্ক্রীন এর জন্য ব্যাবহার করেছি -->
+                            <div class="col-4">
+                              
+                                <div class="f-col-4-image">
+                                  
+                                    <img src="{{ product.featured_image | img_url: 'master' }}" class="w-100 h-100" alt="" srcset="">
+                                </div>
+                              
+                            </div>
+                              <!--    সম্পূর্ণ ১২ টা রো থেকে আমরা ৮ টা কলাম বড় স্ক্রীন এর জন্য  মিডিয়াম , ছোট স্ক্রীন এর জন্য ব্যাবহার করেছি -->
+                            <div class="col-8">
+                              
+                                <div class="f-col-4-imgTit">
+                                    <a href="{{ product.url }}" class="">
+                                <h3 class="pb-2" style="margin: 0px;">{{ product.title }}</h3>
+                                  </a>
+                                  
+                                    <h3 class="pe-3" >{{ product.price | money }}</h3>
+                                  
+                                  <p> {{ product.compare_at_price | money }}</p>
+                                  
+                                </div>
+                              
+                            </div>
+                          
+                        </div>
+                      {% endfor %}
+                    </div>
+                       <!--    সম্পূর্ণ ১২ টা রো থেকে আমরা ৪ টা কলামই বড় স্ক্রীন ,মিডিয়াম , ছোট স্ক্রীন এর জন্য সম্পূর্ণ ১২ ব্যাবহার করেছি-->
+                    <div class="col-lg-4 col-12">
+                      
+                        <!-- this is second column -->
+                      
+                        <h2 class=" my-3 fw-light" style="color:{{ section.settings.f-c-4-t-2 }}">{{ section.settings.Second_heading}} </h2>
+                       <!--         আমরা সেকশন সেটিং এ  collection নামে একটি আইডি তৈরি  করেছি এই collection কে collections এর ARRAY তে রূপান্তর করে  collection নামের variable এ রাখা হয়েছে -->
+                       {% assign second_collection = collections[section.settings.collection2] %}
+  <!--         ফরলুপ এর মাধমে collection নামের বেরিয়েবল থেকে products কে নিয়ে আশা হয়েছে  সেই সাথে একটি লিমিট দেওয়া হয়েছে যার মাধমে কতগুলো প্রোডাক্ট আশবে তা ডিলার করা হয়েছে  সেকশন সেটিং এ product_limit আইডি তৈরি  করে-->
+        {% for product in second_collection.products limit: section.settings.product_limit2 %}
+          
+                        <div class="row my-4 d-flex justify-content-between">
+                          
+                    <!-- this is the row inside the first column every column have 4 products  and for every products image  and it's detail we used a full row -->
+                                <!--    সম্পূর্ণ ১২ টা রো থেকে আমরা 4 টা কলাম বড় স্ক্রীন এর জন্য  মিডিয়াম , ছোট স্ক্রীন এর জন্য ব্যাবহার করেছি -->
+                            <div class="col-4">
+                              
+                                <div class="f-col-4-image">
+                                  
+                                    <img src="{{ product.featured_image | img_url: 'master' }}" class="w-100 h-100" alt="" srcset="">
+                                  
+                                </div>
+                              
+                            </div>
+                          
+                            <div class="col-8">
+                              
+                                <div class="f-col-4-imgTit">
+                                  <a href="{{ product.url }}" class="">
+                                <h3 class="pb-2" style="margin: 0px;">{{ product.title }}</h3>
+                                  </a>
+                                    <h3 class="pe-3">{{ product.price | money }}</h3>
+                                  
+                                  <p> {{ product.compare_at_price | money }}</p>
+                                  
+                                </div>
+                              
+                            </div>
+                          
+                        </div>
+                      
+                      {% endfor %}
+                      
+                    </div>
+                       <!--    সম্পূর্ণ ১২ টা রো থেকে আমরা ৪ টা কলামই বড় স্ক্রীন ,মিডিয়াম , ছোট স্ক্রীন এর জন্য সম্পূর্ণ ১২ ব্যাবহার করেছি-->
+                    <div class="col-lg-4 col-12">
+                        
+                        <h2 class=" my-3 " style="color:{{ section.settings.f-c-4-t-3 }}">{{ section.settings.Third_heading}} </h2>
+                      
+                        <!-- this is third column -->
+                      
+                       {% assign third_collection = collections[section.settings.collection3] %}
+
+        {% for product in third_collection.products limit: section.settings.product_limit3 %}
+          
+                        <div class="row my-4 d-flex justify-content-between">
+                          
+                            <!-- this is the row inside the first column every column have 4 products  and for every products image  and it's detail we used a full row -->
+                          
+                            <div class="col-4">
+                              
+                                <div class="f-col-4-image">
+                                  
+                                    <img src="{{ product.featured_image | img_url: 'master' }}" class="w-100 h-100" alt="" srcset="">
+                                  
+                                </div>
+                              
+                            </div>
+                          
+                            <div class="col-8">
+                              
+                                <div class="f-col-4-imgTit">
+                                  <a href="{{ product.url }}" class="">
+                                    <h3 class="pb-2" style="margin: 0px;">{{ product.title }}</h3>
+                                  </a>
+                                    <h3 class="pe-3">{{ product.price | money }}</h3>
+
+                                  <p> {{ product.compare_at_price | money }}</p>
+                                  
+                                </div>
+                              
+                            </div>
+                          
+                        </div>
+          
+                      {% endfor %}
+                      
+                </div>
+                  
+            </div>
+        </div>
+<!--     </div> -->
+{% schema %}
+  {
+    "name": "Fetured-collection-4",
+    "settings": [
+      {
+        "type":"color",
+        "id":"f-c-4-t-3",
+        "label":"Collection Title-1 color",
+        "default":"#000000"
+      },
+      {
+        "type":"color",
+        "id":"f-c-4-t-2",
+        "label":"Collection Title-2 color",
+        "default":"#000000"
+      },
+      {
+        "type":"color",
+        "id":"f-c-4-t-1",
+        "label":"Collection Title-3 color",
+        "default":"#000000"
+      },
+       {
+    "type":"text",
+      "id":"First_heading",
+      "label":"1st_Heading",
+      "default":"Add Heading Text"
+    },
+       {
+    "type":"text",
+      "id":"f-c-4-h-t",
+      "label":"Add Section title",
+      "default":"Add Heading Text"
+    },
+       {
+    "type":"text",
+      "id":"Second_heading",
+      "label":"2nd_Heading",
+      "default":"Add Heading Text"
+    },
+       {
+    "type":"text",
+      "id":"Third_heading",
+      "label":"3rd_Heading",
+      "default":"Add Heading Text"
+    },
+       {
+      "type": "collection",
+      "id": "collection1",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "product_limit1",
+      "label": "Product Limit",
+      "default": 4,
+      "min": 1,
+      "max": 12,
+      "step": 1
+    },
+       {
+      "type": "collection",
+      "id": "collection2",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "product_limit2",
+      "label": "Product Limit",
+      "default": 4,
+      "min": 1,
+      "max": 12,
+      "step": 1
+    },
+       {
+      "type": "collection",
+      "id": "collection3",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "product_limit3",
+      "label": "Product Limit",
+      "default": 4,
+      "min": 1,
+      "max": 12,
+      "step": 1
+    }
+    ],
+    "presets":[
+      {
+         "name": "Featured-collection-4",
+            "category": "Product",
+      "settings": {
+        "collection1": "all",
+        "collection2": "all",
+        "collection3": "all",
+        "product_limit1": 4,
+        "product_limit2": 4,
+        "product_limit3": 4
+      }
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

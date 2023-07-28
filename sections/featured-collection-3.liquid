@@ -1,0 +1,155 @@
+<style>
+  /*   .f-c-3-ma-content{
+
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0px 20px;
+    } */.c-l-6-t-l-2, .c-l-6-t-r-2, .c-l-6-b-l-2, .c-l-6-b-r-2 h2, * h2 {
+    width: 100%;
+}
+    .f-c-li-3-tit{
+      text-align:center;
+            }
+    .f-c-li-t-3 h3{text-overflow: ellipsis;
+         white-space: nowrap;
+         overflow: hidden;
+    }
+    .f-c-li-t-3 span,p{
+      display:inline;
+    }
+   
+
+    .f-c-li-t-3 p{
+    text-decoration: line-through;
+      color: #ff2f00e3;
+    }
+    .f-c-li-3-img1{
+              height: 175px;
+              }
+   .f-c-li-3-img2{
+         height:500px;
+       }
+        @media only screen and (max-width: 768px) {
+             /* Responsive layout for mobile devices */
+                .f-c-li-3-img1 {
+                         height:140px;
+                       }
+                 
+                  .f-c-li-t-3 h3{
+           text-overflow: ellipsis;
+           white-space: nowrap;
+           overflow: hidden;
+                  }
+                
+                  .f-c-li-3-img2{
+         height:400px;
+       }
+          .row-f-c-3 {
+      --bs-gutter-x: 1rem;
+  }
+           }
+
+           /* Tablet */
+           @media only screen and (min-width: 768px) and (max-width: 992px) {
+             /* Responsive layout for tablet devices */
+             .f-c-li-3-img1 {
+               height: 150px;
+             }
+       .f-c-li-3-img2{
+         height:440px;
+       }
+           }
+
+           /* Laptop */
+           @media only screen and (min-width: 992px) and (max-width: 1280px) {
+             /* Responsive layout for laptop devices */
+     .f-c-li-3-img2{
+         height:500px;
+       }
+    .f-co-1-t h3{
+           text-overflow: ellipsis;
+           white-space: nowrap;
+           overflow: hidden;
+                  }
+           }
+</style>
+
+<div class="container mt-4 mb-4">
+  <h2 style="text-align:center">{{ section.settings.title }}</h2>
+  <div class="row d-flex justify-content-between">
+    <div class="col-12 col-lg-8 my-md-3 my-2 order-2 order-md-1">
+      <div class="row d-flex justify-content-between row-f-c-3">
+        {% assign collection = collections[section.settings.collection] %}
+
+        {% for product in collection.products limit: section.settings.product_limit %}
+          <div class="col-md-3 col-6 mb-md-3 mb-2">
+            <div class=" ">
+              <div class="f-c-li-3-img1">
+                <img src="{{ product.featured_image | img_url: 'master' }}" class="w-100 h-100" alt="" srcset="">
+              </div>
+              <div class="f-c-li-t-3">
+                <a href="{{ product.url }}" class="my-md-3 my-2">
+                  <h3 style="margin: 0px;">{{ product.title }}</h3>
+                </a>
+
+                <span class="pe-3">{{ product.price | money }}</span>
+
+                <p>{{ product.compare_at_price | money }}</p>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="col-12 col-lg-4  my-md-3 my-2 order-1 order-md-2 f-c-li-3-img2">
+      <img src="{{ section.settings.customimage | img_url: 'master' }}" class="w-100 h-100" alt="">
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Fetured_collection_3",
+  "settings": [
+     {
+               "type":"text",
+               "id":"title",
+               "label":"add text",
+               "default":"Add Title Here"
+            },
+    {
+             "type":"image_picker",
+             "id":"customimage",
+             "label":"Add a Custom Image"
+          },  {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "product_limit",
+      "label": "Product Limit",
+      "default": 8,
+      "min": 1,
+      "max": 12,
+      "step": 1
+    }
+  ],
+  "presets":[
+    {
+      "name": "Featured-Collection-3",
+       "category": "Product",
+      "settings": {
+        "collection": "all",
+        "product_limit": 8
+      }
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

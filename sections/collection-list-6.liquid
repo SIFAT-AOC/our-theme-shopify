@@ -1,0 +1,527 @@
+<style>
+    .c-l-6-img{
+      height: 465px;
+      position: relative;
+  }
+  .c-l-6-img2{
+      height: 150px;
+      margin-bottom: 0.5rem;
+      position: relative;
+  }
+  .c-l-6-img2 img{
+      object-fit: cover;
+  }
+  .c-l-6-t{
+    color:{{ section.settings.c-l-6-t-h-c }};text-align:center;
+    font-Height: 26px;
+  }.c-l-6-t-l-2, .c-l-6-t-r-2, .c-l-6-b-l-2, .c-l-6-b-r-2 h2, * h2 {
+    width: 100%;
+}
+/*dynamic section title color   */
+  .c-l-6-t-c-1{
+color:{{ section.settings.c-l-6-t-h-c }};text-overflow: ellipsis;
+           white-space: nowrap;
+           overflow: hidden;
+  }
+  .c-l-6-t-c-2{
+color:{{ section.settings.c-l-6-t-h-c }};text-overflow: ellipsis;
+           white-space: nowrap;
+           overflow: hidden;
+  }
+  .c-l-6-t-c-3{
+color:{{ section.settings.c-l-6-t-h-c }};text-overflow: ellipsis;
+           white-space: nowrap;
+           overflow: hidden;
+  }
+  .c-l-6-t-c-4{
+color:{{ section.settings.c-l-6-t-h-c }};text-overflow: ellipsis;
+           white-space: nowrap;
+           overflow: hidden;
+  }
+  .c-l-6-t-c-5{
+color:{{ section.settings.c-l-6-t-h-c }};text-overflow: ellipsis;
+           white-space: nowrap;
+           overflow: hidden;
+  }
+/*dynamic section title decoration end here    */
+  .c-l-6-img img{
+      object-fit: cover;
+  }
+  .c-l-6-i-row {
+      --bs-gutter-x: 0.5rem;
+  }
+  /* first and last text position start */
+  .c-l-6-b-l{
+      position: absolute;
+      width: 75%;
+      bottom: 20px;
+      left: 0;
+      display: flex;
+      justify-content: center;
+  }
+   .c-l-6-b-r{
+      position: absolute;
+      width: 75%;
+      bottom: 20px;
+      right: 0;
+      display: flex;
+      justify-content: center;
+  }
+  .c-l-6-t-l,.c-l-6-t-r,.c-l-6-b-l,.c-l-6-b-r h2{
+      text-align: center;
+  }
+  .c-l-6-t-l{
+      position: absolute;
+      width: 75%;
+      top: 20px;
+      left: 0px;
+      display: flex;
+      justify-content: center;
+  }
+  .c-l-6-t-r{
+      position: absolute;
+      width: 75%;
+      top: 20px;
+      right: 0;
+      display: flex;
+      justify-content: center;
+  }
+  /* first and last text position end */
+  .c-l-6-b-l-2{
+      position: absolute;
+      width: 45%;
+      bottom: 10px;
+      left: 10px;
+  }
+  .c-l-6-t-l-2{
+      position: absolute;
+      width: 45%;
+      top: 10px;
+      left: 10px;
+  }
+  .c-l-6-t-r-2{
+      position: absolute;
+      width: 45%;
+      top: 10px;
+      right:  10px;
+  }
+  .c-l-6-b-r-2{
+      position: absolute;
+      width: 80%;
+      bottom: 10px;
+      right:  10px;
+  }
+ .c-l-6-t-l-2,.c-l-6-t-r-2,.c-l-6-b-l-2,.c-l-6-b-r-2 h2, * h2 {
+      width: 100%;
+  }
+
+
+  @media only screen and (max-width: 768px) {
+      .c-l-6-t-l-2,.c-l-6-t-r-2,.c-l-6-b-l-2,.c-l-6-b-r-2,.c-l-6-t-l,.c-l-6-t-r,.c-l-6-b-l,.c-l-6-b-r{
+          width: 75%;
+      }
+      .c-l-6-img{
+          height: 250px;
+      }
+      .c-l-6-img2{
+          height: 130px;
+          margin-bottom: 0.5rem;
+          position: relative;
+      }
+  }
+</style>
+{% assign listcollection = collections[section.settings.collection] %}
+{% assign listcollection1 = collections[section.settings.collection1] %}
+{% assign listcollection2 = collections[section.settings.collection2] %}
+{% assign listcollection3 = collections[section.settings.collection3] %}
+{% assign listcollection4 = collections[section.settings.collection4] %}
+<div class="container my-4">
+  <h1 class="c-l-6-t my-md-4 my-3" style="text-overflow: ellipsis;
+           white-space: nowrap;
+           overflow: hidden;">{{ section.settings.c-l-6-t }}</h1>
+  <div class="row d-flex justify-content-between c-l-6-i-row">
+    <div class="col-md-3 col-6 order-1">
+      <div class="c-l-6-img">
+        <img src="{{ listcollection.featured_image | img_url: 'master' }}" alt="" class="w-100 h-100" srcset="">
+        {% assign text_position = section.settings.textId-c-l-6-1 %}
+
+        {% if text_position == 'top-left' %}
+          <div class="c-l-6-t-l-2 c-l-6-t-c-1">
+          <a href="{{listcollection.url}}">
+            <h3 class=" ">{{ listcollection.title }}</h3>
+          </a>
+          </div>
+        {% elsif text_position == 'top-right' %}
+          <div class="c-l-6-t-r c-l-6-t-c-1">
+            <a href="{{listcollection.url}}">
+            <h3 class=" ">{{ listcollection.title }}</h3>
+          </a>
+          </div>
+        {% elsif text_position == 'bottom-left' %}
+          <div class="c-l-6-b-l c-l-6-t-c-1">
+            <a href="{{listcollection.url}}">
+            <h3 class=" ">{{ listcollection.title }}</h3>
+          </a>
+          </div>
+        {% elsif text_position == 'bottom-right' %}
+          <div class=" c-l-6-b-r c-l-6-t-c-1">
+           <a href="{{listcollection.url}}">
+            <h3 class=" ">{{ listcollection.title }}</h3>
+          </a>
+          </div>
+        {% endif %}
+        <div class="c-l-6-overlay"></div>
+      </div>
+    </div>
+    <div class="col-md-6 col-12 order-md-2 order-3 mt-md-0 mt-3">
+      <div class="row d-flex justify-content-between flex-wrap c-l-6-i-row">
+        <div class="col-12">
+          <div class="c-l-6-img2">
+            <img src="{{ listcollection1.featured_image | img_url: 'master' }}" alt="" class="w-100 h-100" srcset="">
+            {% assign text_position = section.settings.textId-c-l-6-2 %}
+
+        {% if text_position == 'top-left' %}
+          <div class="c-l-6-t-l-2 c-l-6-t-c-2">
+   <a href="{{listcollection1.url}}">
+           <h3 class=" ">{{ listcollection1.title }}</h3>
+          </a>
+          </div>
+        {% elsif text_position == 'top-right' %}
+          <div class="c-l-6-t-r-2 c-l-6-t-c-2">
+           <a href="{{listcollection1.url}}">
+           <h3 class=" ">{{ listcollection1.title }}</h3>
+          </a>
+          </div>
+        {% elsif text_position == 'bottom-left' %}
+          <div class="c-l-6-b-l-2 c-l-6-t-c-2">
+            <a href="{{listcollection1.url}}">
+           <h3 class=" ">{{ listcollection1.title }}</h3>
+          </a>
+          </div>
+        {% elsif text_position == 'bottom-right' %}
+          <div class=" c-l-6-b-r-2 c-l-6-t-c-2">
+          <a href="{{listcollection1.url}}">
+           <h3 class=" ">{{ listcollection1.title }}</h3>
+          </a>
+          </div>
+        {% endif %}
+            
+            <div class="c-l-6-overlay"></div>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="c-l-6-img2">
+            <img src="{{ listcollection2.featured_image | img_url: 'master' }}" alt="" class="w-100 h-100" srcset="">
+            {% assign text_position = section.settings.textId-c-l-6-3 %}
+
+        {% if text_position == 'top-left' %}
+          <div class="c-l-6-t-l-2 c-l-6-t-c-3">
+  <a href="{{listcollection2.url}}">
+           <h3 class=" ">{{ listcollection2.title }}</h3>
+  
+  </a>
+          </div>
+        {% elsif text_position == 'top-right' %}
+          <div class="c-l-6-t-r-2 c-l-6-t-c-3">
+           <a href="{{listcollection2.url}}">
+           <h3 class=" ">{{ listcollection2.title }}</h3>
+  
+  </a>
+          </div>
+        {% elsif text_position == 'bottom-left' %}
+          <div class="c-l-6-b-l-2 c-l-6-t-c-3">
+           <a href="{{listcollection2.url}}">
+           <h3 class=" ">{{ listcollection2.title }}</h3>
+  
+  </a>
+          </div>
+        {% elsif text_position == 'bottom-right' %}
+          <div class=" c-l-6-b-r-2 c-l-6-t-c-3">
+           <a href="{{listcollection2.url}}">
+           <h3 class=" ">{{ listcollection2.title }}</h3>
+  
+  </a>
+          </div>
+        {% endif %}
+            <div class="c-l-6-overlay"></div>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="c-l-6-img2">
+            <img src="{{ listcollection3.featured_image | img_url: 'master' }}" alt="" class="w-100 h-100" srcset="">
+            {% assign text_position = section.settings.textId-c-l-6-4 %}
+
+        {% if text_position == 'top-left' %}
+          <div class="c-l-6-t-l-2 c-l-6-t-c-4">
+           <a href="{{listcollection3.url}}">
+           <h3 class=" ">{{ listcollection3.title }}</h3>
+  
+  </a>
+          </div>
+        {% elsif text_position == 'top-right' %}
+          <div class="c-l-6-t-r-2 c-l-6-t-c-4">
+             <a href="{{listcollection3.url}}">
+           <h3 class=" ">{{ listcollection3.title }}</h3>
+  
+  </a>
+          </div>
+        {% elsif text_position == 'bottom-left' %}
+          <div class="c-l-6-b-l-2 c-l-6-t-c-4">
+             <a href="{{listcollection3.url}}">
+           <h3 class=" ">{{ listcollection3.title }}</h3>
+  
+  </a>
+          </div>
+        {% elsif text_position == 'bottom-right' %}
+          <div class=" c-l-6-b-r-2 c-l-6-t-c-4">
+            <a href="{{listcollection3.url}}">
+           <h3 class=" ">{{ listcollection3.title }}</h3>
+  
+  </a>
+          </div>
+        {% endif %}
+            <div class="c-l-6-overlay"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 col-6 order-md-3 order-2">
+      <div class="c-l-6-img">
+        <img src="{{ listcollection4.featured_image | img_url: 'master' }}" alt="" class="w-100 h-100" srcset="">
+         {% assign text_position = section.settings.textId-c-l-6-5 %}
+
+        {% if text_position == 'top-left' %}
+          <div class="c-l-6-t-l c-l-6-t-c-5">
+             <a href="{{listcollection4.url}}">
+           <h3 class=" ">{{ listcollection4.title }}</h3>
+  
+  </a>
+          </div>
+        {% elsif text_position == 'top-right' %}
+          <div class="c-l-6-t-r c-l-6-t-c-5">
+             <a href="{{listcollection4.url}}">
+           <h3 class=" ">{{ listcollection4.title }}</h3>
+  
+  </a>
+          </div>
+        {% elsif text_position == 'bottom-left' %}
+          <div class="c-l-6-b-l c-l-6-t-c-5">
+              <a href="{{listcollection4.url}}">
+           <h3 class=" ">{{ listcollection4.title }}</h3>
+  
+  </a>
+          </div>
+        {% elsif text_position == 'bottom-right' %}
+          <div class=" c-l-6-b-r c-l-6-t-c-5">
+              <a href="{{listcollection4.url}}">
+           <h3 class=" ">{{ listcollection4.title }}</h3>
+  
+  </a>
+          </div>
+        {% endif %}
+        <div class=""></div>
+      </div>
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "collection-List-6",
+  "settings": [
+    {
+             "type":"text",
+             "id":"c-l-6-t",
+             "label":"add text",
+             "default":"add your title here"
+          },
+    {
+      "type":"color",
+      "id":"c-l-6-t-h-c",
+      "label":"Header Title color",
+      "default":"#000000"
+    },
+    {
+      "type":"color",
+      "id":"c-l-6-t-c-1",
+      "label":"1st Div title Color",
+      "default":"#000000"
+    },
+    {
+      "type":"color",
+      "id":"c-l-6-t-c-2",
+      "label":"2nd Div title Color",
+      "default":"#000000"
+    },
+    {
+      "type":"color",
+      "id":"c-l-6-t-c-3",
+      "label":"3rd Div title Color",
+      "default":"#000000"
+    },
+    {
+      "type":"color",
+      "id":"c-l-6-t-c-4",
+      "label":"4th Div title Color",
+      "default":"#000000"
+    },
+    {
+      "type":"color",
+      "id":"c-l-6-t-c-5",
+      "label":"5th Div title Color",
+      "default":"#000000"
+    },
+    {
+    "type": "collection",
+    "id": "collection",
+   "label": "Collection1(Recommanded Image Height 465px)"
+  },
+    {
+    "type": "collection",
+    "id": "collection1",
+   "label": "Collection2(Recommanded Image Height  150px)"
+  },
+      {
+    "type": "collection",
+    "id": "collection2",
+    "label": "Collection3(Recommanded Image Height  150px)"
+  },
+      {
+    "type": "collection",
+    "id": "collection3",
+    "label": "Collection4(Recommanded Image Height  150px)"
+      },
+      {
+    "type": "collection",
+    "id": "collection4",
+    "label": "Collection5(Recommanded Image Height  465px)"
+      },
+    {
+      "id": "textId-c-l-6-1",
+      "label": "Text Position_1stDiv",
+      "type": "radio",
+      "options": [
+        {
+          "value": "top-left",
+          "label": "Top Left"
+        },
+        {
+          "value": "top-right",
+          "label": "Top Right"
+        },
+        {
+          "value": "bottom-left",
+          "label": "Bottom Left"
+        },
+        {
+          "value": "bottom-right",
+          "label": "Bottom Right"
+        }
+      ],
+     "default": "bottom-right"
+    },
+    {
+      "id": "textId-c-l-6-2",
+      "label": "Text Position_2ndDiv",
+      "type": "radio",
+      "options": [
+        {
+          "value": "top-left",
+          "label": "Top Left"
+        },
+        {
+          "value": "top-right",
+          "label": "Top Right"
+        },
+        {
+          "value": "bottom-left",
+          "label": "Bottom Left"
+        },
+        {
+          "value": "bottom-right",
+          "label": "Bottom Right"
+        }
+      ],
+     "default": "bottom-right"
+    },
+    {
+      "id": "textId-c-l-6-3",
+      "label": "Text Position_3rdDiv",
+      "type": "radio",
+      "options": [
+        {
+          "value": "top-left",
+          "label": "Top Left"
+        },
+        {
+          "value": "top-right",
+          "label": "Top Right"
+        },
+        {
+          "value": "bottom-left",
+          "label": "Bottom Left"
+        },
+        {
+          "value": "bottom-right",
+          "label": "Bottom Right"
+        }
+      ],
+     "default": "bottom-right"
+    },
+    {
+      "id": "textId-c-l-6-4",
+      "label": "Text Position_4thDiv",
+      "type": "radio",
+      "options": [
+        {
+          "value": "top-left",
+          "label": "Top Left"
+        },
+        {
+          "value": "top-right",
+          "label": "Top Right"
+        },
+        {
+          "value": "bottom-left",
+          "label": "Bottom Left"
+        },
+        {
+          "value": "bottom-right",
+          "label": "Bottom Right"
+        }
+      ],
+     "default": "bottom-right"
+    },
+    {
+      "id": "textId-c-l-6-5",
+      "label": "Text Position_5thDiv",
+      "type": "radio",
+      "options": [
+        {
+          "value": "top-left",
+          "label": "Top Left"
+        },
+        {
+          "value": "top-right",
+          "label": "Top Right"
+        },
+        {
+          "value": "bottom-left",
+          "label": "Bottom Left"
+        },
+        {
+          "value": "bottom-right",
+          "label": "Bottom Right"
+        }
+      ],
+     "default": "bottom-right"
+    }
+  ],
+
+   "presets": [
+  {
+    "name": "collection-List-6"
+  }
+]
+}
+{% endschema %}
+

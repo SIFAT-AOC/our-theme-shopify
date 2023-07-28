@@ -1,0 +1,211 @@
+<style>
+      /* header text */
+    .c-l-2-h-s {
+      color:{{section.settings.c-l-2-c-h}};
+    }
+    /* custom build main container */
+  .c-l-6-t-l-2, .c-l-6-t-r-2, .c-l-6-b-l-2, .c-l-6-b-r-2 h2, * h2 {
+    width: 100%;
+}
+    .myContainer {
+      max-width: 2400px;
+      padding: 0px 210px;
+      margin: 0 auto;
+    }
+    .collectionGrid {
+      padding: 25px 15px;
+    }
+    div,
+    .secondHeading {
+      display: block;
+    }
+
+    .secondHeading {
+      color: #a6a6a6;
+      text-transform: uppercase;
+    }
+    .c-l-2-p-t {
+      color: {{section.settings.c-l-2-c-t}};
+      text-transform: uppercase;
+       text-overflow: ellipsis;
+           white-space: nowrap;
+           overflow: hidden;
+    }
+    a {
+      text-decoration: none;
+      background-color: transparent;
+    }
+    /* image hover effect */
+
+    .imageContainers {
+      overflow: hidden;
+    }
+
+    .imageContainers img {
+      display: block;
+    }
+    .imageContainers:hover img {
+      transform: scale(1.2);
+      transition: transform 0.7s ease;
+      z-index: 1;
+    }
+    /* hover effect end */
+
+    /* responsive media query section start */
+    @media (max-width: 1280px) {
+
+
+
+    }
+    @media (max-width: 992px) {
+  /*
+      .topSidePadding {
+        padding-top: 8px;
+      } */
+    }
+    @media (max-width: 768px) {
+      .collectionGrid {
+        padding: 15px 10px;
+      }
+  .c-l-2-p-t {
+  }
+      .c-l-2-h-s {
+      color:{{section.settings.c-l-2-c-h}};
+    }
+    }
+    @media (max-width: 580px) {
+      .c-l-2-p-t {
+  }
+    }
+</style>
+
+{% case section.settings.grid1 %}
+  {% when 2 %}
+    {%- assign colsize = 'col-md-6' -%}
+  {% when 3 %}
+    {%- assign colsize = 'col-md-4' -%}
+  {% when 4 %}
+    {%- assign colsize = 'col-md-3' -%}
+  {% when 5 %}
+    {%- assign colsize = 'col-md-20' -%}
+  {% when 6 %}
+    {%- assign colsize = 'col-md-2' -%}
+{% endcase %}
+
+
+
+{% assign listcollection = collections[section.settings.collection] %}
+
+<!-- section start here -->
+<div class="container">
+  <h2 class=" c-l-2-h-s text-center my-md-4 my-3" style="
+       text-overflow: ellipsis;
+           white-space: nowrap;
+           overflow: hidden;">{{ section.settings.c-l-2-h-T }}</h2>
+  <div class="row d-flex justify-content-center align-items-center ">
+    {% for block in section.blocks %}
+      {% case block.settings.grid2 %}
+  {% when 3 %}
+    {%- assign colsize2 = 'col-3' -%}
+  {% when 6 %}
+    {%- assign colsize2 = 'col-6' -%}
+  {% when 12 %}
+    {%- assign colsize2 = 'col-12' -%}
+{% endcase %}
+      <!-- first column -->
+      {%- assign collection = collections[block.settings.collection] -%}
+
+      <div class="{{ colsize}} {{ colsize2 }} collectionGrid">
+        <div class="imageContainers w-100 h-75">
+          <img src="{{ collection.featured_image | img_url: 'master' }}" class="w-100 h-100" alt="">
+        </div>
+        <a href="{{collection.url}}" class="text-md-start text-center">
+          <h3 class=" c-l-2-p-t">{{ collection.title }}</h3>
+        </a>
+      </div>
+    {% endfor -%}
+
+    <!-- first column end here -->
+  </div>
+
+  <!-- row end here -->
+</div>
+<!-- main section end here -->
+{% schema %}
+{
+  "name": "Collection-List-2",
+  "settings": [
+     {
+               "type":"text",
+               "id":"c-l-2-h-T",
+               "label":"add text",
+               "default":"add your title here"
+            },
+    {
+        "type": "range",
+        "id": "grid1",
+        "label": "Collections per row",
+        "min": 2,
+        "max": 6,
+        "step": 1,
+        "default": 3
+      },
+      {
+  "type": "color",
+  "id": "c-l-2-c-h",
+  "label": "Section Header Title",
+  "default": "#000000"
+},
+      {
+  "type": "color",
+  "id": "c-l-2-c-t",
+  "label": "Section Header Title",
+  "default": "#000000"
+}
+  ],
+
+   "blocks": [
+      {
+        "type": "Collection-List-2",
+        "name": "Collection",
+        "settings": [
+          {
+            "label": "Collection",
+            "id": "collection",
+            "type": "collection"
+          },
+    {
+        "type": "range",
+        "id": "grid2",
+        "label": "Select Column for mobile device",
+        "min": 3,
+        "max": 12,
+        "step": 1,
+        "default": 6
+      }
+
+        ]
+      }
+    ],
+   "presets": [
+   {
+        "name": "Collection list-2",
+        "category": "Collection",
+        "blocks": [
+          {
+            "type": "Collection-List-2"
+          }
+
+        ]
+      }
+  ]
+
+
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

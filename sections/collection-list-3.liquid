@@ -1,0 +1,135 @@
+<style>
+  
+
+  /*   new */
+     @media (max-width: 1280px) {
+      .c-l-3-i-h{
+      height:440px;
+    }
+    }
+        @media (max-width: 1180px) {
+        .card-body {
+          width: 80%;
+        }
+       .c-l-3-i-h{
+      height:400px;
+    }
+      }
+    @media (max-width: 992px) {
+     .c-l-3-i-h{
+      height:340px;
+    }
+    }
+    @media (max-width: 768px) {
+       .card-body {
+            width: 80%;
+          }
+         .c-l-3-i-h{
+      height:340px;
+    }
+    }
+    @media (max-width: 580px) {
+         .c-l-3-i-h{
+      height:220px;
+    }
+    }
+</style>
+<div class="container mt-3">
+  <h2 class=" c-l-3-h-s text-center mt-md-4 mt-3" style="
+       text-overflow: ellipsis;
+           white-space: nowrap;
+           overflow: hidden;">{{ section.settings.c-l-3-h-T}}</h2>
+  <div class="row c-l-3-row d-flex justify-content-between">
+    {% for block in section.blocks %}
+      {%- assign collection = collections[block.settings.collection] -%}
+  {% case block.settings.grid2 %}
+  {% when 3 %}
+    {%- assign colsize2 = 'col-3' -%}
+  {% when 6 %}
+    {%- assign colsize2 = 'col-6' -%}
+  {% when 12 %}
+    {%- assign colsize2 = 'col-12' -%}
+{% endcase %}
+      <div class="col-md-6 {{ colsize2 }} my-2">
+        <div class="c-l-3-i-h overflow-hidden w-100 ">
+          <div class="card w-100 h-100">
+            <img src="{{ collection.featured_image | img_url:''}}" class="w-100 h-100" alt="Your Image">
+
+            <div class="card-body" style="background-color: rgba(255,255,255,0.7);">
+              <a href="{{collection.url}}">
+                <h3 class="">{{ collection.title }}</h3>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "collection_List3",
+  "settings": [
+      {
+               "type":"text",
+               "id":"c-l-3-h-T",
+               "label":"add text",
+               "default":"add your title here"
+            },
+    {
+      "type":"color",
+      "id":"c-l-3-c-h-T",
+      "label":"Add your color",
+      "default":"#000000"
+    }
+  ],
+  "blocks": [
+      {
+        "type": "collection_3",
+        "name": "Collection",
+        "settings": [
+          {
+            "label": "Collection",
+            "id": "collection",
+            "type": "collection"
+          }
+,
+      {
+  "type": "color",
+  "id": "c-l-2-c-h",
+  "label": "Section Header Title",
+  "default": "#000000"
+},
+    {
+        "type": "range",
+        "id": "grid2",
+        "label": "Select Column for mobile device",
+        "min": 3,
+        "max": 12,
+        "step": 1,
+        "default": 6
+      }
+        ]
+      }
+    ],
+  "presets" :[
+    {
+        "name": "Collection-List-3",
+        "category": "Collection",
+        "blocks": [
+          {
+            "type": "collection_3"
+          }
+
+        ]
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

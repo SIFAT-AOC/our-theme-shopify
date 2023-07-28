@@ -1,0 +1,146 @@
+<section class="testimonials">
+  <div class="container">
+    <div class="row slider-actives" data-slick='{"slidesToShow": 4, "slidesToScroll": 4}'>
+      {% for block in section.blocks %}
+        <div class=" col-12  my-md-0 my-4 ">
+          <div class="profile">
+            <img src="{{ block.settings.userImag | img_url:'' }}" class="user" alt="" srcset="">
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Section name",
+  "settings": [
+    {
+      "type":"text",
+      "id":"testimonialTitle",
+      "label":"add Title",
+      "default":"add testimonial title"
+    },
+    {
+      "type":"text",
+      "id":"testimonialHeader",
+      "label":"add Header",
+      "default":"add testimonial Header"
+    }
+  ],
+  "blocks":[
+    {
+      "name":"testimonialBlocks",
+      "type":"block",
+      "settings":[
+        {
+          "type":"image_picker",
+          "id":"userImag",
+          "label":"add image"
+        },
+        {
+      "type":"text",
+      "id":"userTitle",
+      "label":"add Title",
+      "default":"add testimonial title"
+        }
+      ]
+    }
+  ],
+  "presets":
+  [
+        {
+          "name": "user testimonial 1",
+          "blocks":[
+            {
+            "type":"block"
+            }
+          ]
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+    *{
+
+      padding: 0;
+      margin: 0;
+  }
+  .testimonials{
+      margin: 50px auto;
+
+  }
+  .testimonials h1{
+      text-align: center;
+      font-weight: bold;
+      color: #ff9800;
+      padding-bottom: 10px;
+      text-transform: uppercase;
+  }
+  .testimonials h1::after{
+      content: "";
+      display: block;
+      width: 100px;
+      height: 3px;
+      background: #ff9800;
+      margin: 20px auto 5px;
+  }
+  .testimonials .row{
+      margin-top: 70px;
+  }
+
+  .profile{
+      padding: 70px 10px 10px;
+
+      /* position: relative; */
+  }
+  .profile img
+  {
+      top: -60px ;
+      position: absolute;
+      left: calc(50% -  60px);
+      border: .6rem solid white;
+  }
+  .user{
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+  }
+  .profile h3{
+      font-size: 20px;
+      margin-top: 15px;
+      color: #ff9800;
+  }
+  .profile h3 span{
+      font-size: 12px;
+      color: #333;
+  }
+  blockquote{
+      font: 16px;
+      line-height: 20px;
+  }
+  blockquote::before{
+      content: "\201D";
+      font-size: 40px;
+      color: #ff9800;
+      position: relative;
+      bottom: 15px;
+      right: 5px;
+  }
+  blockquote::after{
+      content: "\201D";
+      font-size: 40px;
+      color: #ff9800;
+      position: relative;
+      bottom: -40px;
+      left: 29px;
+  }
+{% endstylesheet %}
+
+{% javascript %}
+    $( document ).ready(function() {
+      $('.slider-actives').slick();
+  });
+{% endjavascript %}

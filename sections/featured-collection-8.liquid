@@ -1,0 +1,116 @@
+<style>
+        .f-col-li-8-img img{
+            object-fit: cover;
+        }
+        .f-col-li-8-img{
+            height: 306px;
+            border: 1px dashed {{section.settings.f-c-l-8-b-c-d}};
+            transition: all 0.9s ease-in-out;
+            overflow: hidden;
+        }
+        .f-col-li-8-img:hover img {
+  transform: scale(1.2);
+  transition: all 0.9s ease-in-out;
+}
+        .f-c-li-8-img h3{
+            margin-top: 10px;
+          text-overflow: ellipsis;
+         white-space: nowrap;
+         overflow: hidden;
+        }
+        .f-c-li-8-img span{
+            margin-top: 10px;text-overflow: ellipsis;
+         white-space: nowrap;
+         overflow: hidden;
+        }
+        @media (max-width: 768px) {
+            .f-col-li-8-img{
+            height: 226px;
+        }
+        }
+        @media (max-width: 580px) {
+            .f-col-li-8-img{
+            height: 166px;
+        }
+        .f-c-li-8-img h3{
+            margin-top: 7px;
+        }
+        .f-c-li-8-img span{
+            margin-top: 7px;
+        }
+    }
+    </style>
+
+<div class="container my-md-4 my-3">
+   <h2 class="c-l-1-h-t my-md-4 my-3" style="color:  {{section.settings.f-c-l-8-h-c-t}}; text-align:center;  text-overflow: ellipsis;
+         white-space: nowrap;
+         overflow: hidden;">{{ section.settings.f-c-l-8-h-Te}}</h2>
+        <div class="row d-flex justify-content-center align-items-center">
+           {% assign first_collection = collections[section.settings.f-c-l-8-c-8] %}
+              {% for product in first_collection.products limit: section.settings.f-c-l-8-p-l-8 %}
+            <div class="col-lg-3 col-md-4 col-6 my-md-3 my-2">
+                <div class="f-col-li-8-img">
+                    <img src="{{ product.featured_image | img_url: 'master' }}" class="w-100 h-100" alt="" srcset="">
+                </div>
+                <div class="f-c-li-8-img">
+                    <h3 class="m-0">{{ product.title }}</h3>
+                <span class="me-md-3 me-2 ">{{ product.price | money }}</span>
+                <span style="text-decoration: line-through;font-size: 15px; color: red;">{{ product.compare_at_price | money }}</span>
+                </div>
+            </div>
+          {% endfor %}
+        </div>
+    </div>
+ 
+{% schema %}
+  {
+    "name": "Fetured-collection-8",
+    "settings": [ {
+               "type":"text",
+               "id":"f-c-l-8-h-Te",
+               "label":"add text",
+               "default":"add your title here"
+            },
+     {
+  "type": "color",
+  "id": "f-c-l-8-h-c-t",
+  "label": "Title Color1",
+  "default": "#000000"
+}, 
+     {
+  "type": "color",
+  "id": "f-c-l-8-b-c-d",
+  "label": "Border Radius Color",
+  "default": "#000000"
+}, {
+      "type": "collection",
+      "id": "f-c-l-8-c-8",
+      "label": "Featured Collection"
+    },
+    {
+      "type": "range",
+      "id": "f-c-l-8-p-l-8",
+      "label": "Product Limit",
+      "default": 8,
+      "min": 1,
+      "max": 12,
+      "step": 1
+    }],
+    "presets":[
+      {
+         "name": "Fetured-collection-8",
+            "category": "Product",
+      "settings": {
+        "f-c-l-8-c-8": "all",
+        "f-c-l-8-p-l-8": 4
+      }
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

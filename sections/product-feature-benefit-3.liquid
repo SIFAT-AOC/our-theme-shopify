@@ -1,0 +1,172 @@
+<style>
+  .features-header1{
+    font-size: 4rem;
+      position: relative;
+    font-family: poppins;
+    font-weight:600;
+  }
+     .watchDes{
+        font-family: poppins;
+       font-size: 1.6rem;
+       height:100%;
+      width:100%;
+    }
+    .watchTitle{
+       font-size: 2rem;
+       font-family: poppins;
+       height:100%;
+      width:100%;
+    }
+   .product-img{
+    display: flex;
+    justify-content: center;
+     align-items: center;
+   }
+  .imgSize{
+      height: 80px;
+      width: 80px;
+    background-color:white;
+    border-radius:50%;
+  }
+  @media all and (max-width:1280px){
+
+      .features-header1{
+        font-size: 3rem;
+          position: relative;
+        font-family: poppins;
+        font-weight:600;
+      }
+    }
+  }
+  @media all and (max-width:980px){
+
+      .features-header1{
+        font-size: 3.6rem;
+          position: relative;
+        font-family: poppins;
+        font-weight:600;
+      }
+    }
+  @media all and (max-width:768px){
+
+      .features-header1{
+        font-size: 3rem;
+          position: relative;
+        font-family: poppins;
+        font-weight:600;
+      }
+    }
+</style>
+<div class=" pt-5 pb-5 mt-lg-5 mt-md-3 mt-2 mb-lg-5 mb-md-3 mb-2 ">
+  <div class="row w-100">
+    <div class="col-md-6 mb-4 col-12">
+      <div class="product-img">
+        <img src="{{ section.settings.rightimage | img_url:"" }}" class="w-100 " alt="">
+      </div>
+    </div>
+    <div class="col-md-6 col-12 d-flex flex-column  justify-content-md-start align-items-md-start justify-content-center align-items-center my-2 my-md-3 my-md-4 p-5">
+      <h1 class=" features-header1 mb-2 mb-mb-0">
+        {{ section.settings.productHeader }}
+      </h1>
+      <p class="watchDes mt-lg-4 mt-md-3 mt-2 mb-lg-4 mb-md-3 mb-2">
+        {{ section.settings.productDescription }}
+      </p>
+      {% for block in section.blocks %}
+        <div class=" d-flex justify-content-start align-items-start my-4  w-100 h-100">
+          <div class="d-flex justify-content-center align-items-center ">
+            <img src="{{ block.settings.productimages | img_url:'' }}" class="imgSize" alt="">
+          </div>
+          <div class="ms-4 ">
+            <h1 class="watchTitle">
+              {{ block.settings['product-title'] }}
+            </h1>
+            <p class="watchDes text-justify  lh-sm">
+              {{ block.settings.ptextid }}
+            </p>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "product-feature-benefit-3",
+  "settings": [
+      {
+      "type": "image_picker",
+      "id": "rightimage",
+      "label": "image"
+    },
+    {
+    "type":"text",
+      "id":"productHeader",
+      "label":"heading",
+      "default":"Add your heading text"
+    },
+    {
+    "type":"text",
+      "id":"productDescription",
+      "label":"description",
+      "default":"Add your description text"
+    }
+
+
+  ],
+  "blocks":[
+      {
+        "name":"product_feature_benefit3",
+        "type":"block-left",
+        "settings":[
+                {
+             "type":"text",
+             "id":"product-title",
+             "label":"title",
+             "default":"add productTitle"
+          },
+          {
+             "type":"richtext",
+             "id":"ptextid",
+             "label":"discription",
+             "default":"<p>add text about product </p>"
+          },
+          {
+             "type":"image_picker",
+             "id":"productimages",
+             "label":"add image"
+          }
+
+
+
+        ]
+      }
+
+  ],
+  "presets":[
+    {
+     "name":"product_feature_benefit3",
+
+   "blocks":
+      [
+      {
+      "type":"block-left"
+     },
+           {
+      "type":"block-left"
+     },
+           {
+      "type":"block-left"
+     }
+
+  ]
+ }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

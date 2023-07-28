@@ -1,0 +1,89 @@
+ <section class="container my-md-4 my-3">
+    <h1 class="fs-2 text-primary text-bold text-center my-md-3 my-2">
+      {{ section.settings.HeaderTitle }}
+    </h1>
+ <div class="contenet">
+   {% for block in section.blocks %}
+    <div class=" d-flex flex-column justify-content-center align-items-center">
+        <img src="{{ block.settings.productImg | img_url:'' }}" class=" rounded ImageWork mb-3" alt="" srcset="">
+    <h3 class="fs-3  text-center">
+      {{ block.settings.productTitle }}
+    </h3>
+    </div>
+    {% endfor %}
+ </div>
+ </section>
+
+{% schema %}
+  {
+    "name": "how it works 2",
+    "settings": [
+      {
+      "type":"text",
+        "id":"HeaderTitle",
+        "label":"header",
+        "default":"add heading title"
+      }
+    ],
+      "blocks":[
+          {
+          "type":"block1",
+            "name":"productblock",
+            "settings":[
+              {
+              "type":"image_picker",
+                "id":"productImg",
+                "label":"image"
+              },
+              {
+              "type":"text",
+              "id":"productTitle",
+              "label":"title",
+                "default":"add product title"
+              }
+            ]
+          }
+        ],
+    "presets":[
+      {
+      "name":"how it works 2",
+      "blocks":[
+        {
+          "type":"block1"
+        },
+        {
+          "type":"block1"
+        }
+      ]
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+  .contenet{
+    display:grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 1.5rem;
+   
+}
+
+.ImageWork{
+  height:120px;
+  width:120px;
+}
+    @media screen and (max-width: 768px){
+        .contenet{
+            grid-template-columns: repeat(2,1fr);
+        }
+    }
+        
+    @media screen and (max-width: 568px){
+        .contenet{
+            grid-template-columns: repeat(1,1fr);
+        }
+    }
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

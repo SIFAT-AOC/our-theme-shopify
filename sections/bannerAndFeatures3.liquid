@@ -1,0 +1,203 @@
+<style>
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.content-all img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.content-all{
+    position: relative;
+    height: 80vh;
+}
+
+.moveDIv{
+    position: absolute;
+    top: 0px;
+    right: 2%; 
+} 
+.content-box{
+    display: grid;
+    grid-template-columns: 1fr;
+    
+}
+.sizeImg img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+}
+.content-detai h3{
+    font-size: 16px;
+    font-weight: 650;
+    height: 100%;
+    width: 100%;
+}
+.content-detai p{
+    font-size: 13px;
+    font-weight: 500;
+    color: #777777;
+}
+.sizeImg {
+    height:100%;
+    width: 10%;
+}
+/* .content-detai{
+    
+    padding: 10px;
+} */
+.content-detai h3,p{
+    height: 100%;
+    width: 100%;
+    
+}
+@media (max-width:1080px) {
+    .content-all{
+        position: relative;
+      height: 100vh;
+    }
+    .sizeImg {
+        height:100%;
+        width: 10%;
+    }
+    .content-detai h3,p{
+        height: 100%;
+        width: 100%;
+    }
+    .content-box{
+        display: grid;
+        grid-template-columns: 1fr;
+     gap: 1.5rem;   
+    }
+}
+@media (max-width:768px) {
+    .sizeImg {
+        height:80%;
+        width: 10%;
+    }
+    .content-detai h3,p{
+        height: 100%;
+        width: 100%;
+    }
+    .content-box{
+        display: grid;
+        grid-template-columns: 1fr;
+     gap: .8rem;   
+    }
+    .content-all{
+        position: relative;
+         height: 100vh;
+    }
+}
+</style>
+  
+    <div class="content-all my-2 ">
+        <img src="{{ section.settings.bannerMain-img3 | img_url: '' }}" alt="">
+         <div class="row moveDIv my-4 my-lg-0 my-md-0 w-100">
+          
+            <div class="col-md-6 col-12 p-0  p-md-2  order-last order-lg-last order-md-last">
+                <h1 class="content-header fs-6 text-center my-1 my-md-3">
+                  {{ section.settings.Featuretitle3 }}
+                </h1>
+                <h1 class="content-header TopHeader2 fs-2 text-center mb-4 ">
+                    {{ section.settings.Featureheader3 }}
+                </h1>
+             
+                <div class="content-box px-lg-0 px-md-0 px-4">
+                       {% for block in section.blocks %}
+                    <div class="d-flex justify-content-center align-items-center px-2 px-md-2   ">
+                        <div class="d-flex   justify-content-start align-items-center me-4 sizeImg">
+                           <img src="{{ block.settings.BannerFeauteImag | img_url:'' }}" alt="" class="me-lg-0 me-md-0  mb-3" srcset="">
+                        </div>
+                     <div class="d-flex flex-column justify-content-start align-items-start content-detai">
+                        <h3 class=" text-start  mb-2">
+                           {{ block.settings.BannerFeauteTitle }}
+                        </h3>
+                        <p class=" text-start  ">
+                           {{ block.settings.BannerFeauteDescription }}
+                        </p>
+                     </div>
+                 </div>
+        {% endfor %}
+         </div>
+            </div>
+             <div class="col-md-6 order-first order-lg-first order-md-first  w-50 d-block"></div>
+        </div>
+    </div>
+{% schema %}
+  {
+    "name": "banner And Features 3",
+    "settings": [
+       {
+      "type":"image_picker",
+        "id":"bannerMain-img3",
+        "label":"image"
+      },
+      {
+        "type":"text",
+        "id":"Featuretitle3",
+        "label":"add text",
+        "default":"add  header title"
+      },
+      {
+        "type":"text",
+        "id":"Featureheader3",
+        "label":"add text",
+        "default":"add product header"
+      }
+    ],
+    "blocks":[
+      {
+        "name":"banner-block",
+         "type":"banner-feautes-block",
+          "settings":[
+             {
+            "type":"image_picker",
+            "id":"BannerFeauteImag",
+            "label":"add image"
+          },
+          {
+             "type":"text",
+            "id":"BannerFeauteTitle",
+            "label":"Heading",
+            "default":"add product Heading"
+          },
+          {
+            "type":"text",
+            "id":"BannerFeauteDescription",
+            "label":"description",
+            "default":"add product description"
+          }
+          ]
+      }
+    ],
+     "presets":[
+      {
+      "name":"banner And Features 3",
+       "blocks":[
+             {
+                "type":"banner-feautes-block"
+             },
+             {
+                "type":"banner-feautes-block"
+             },
+             {
+                "type":"banner-feautes-block"
+             }
+             
+       ]
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

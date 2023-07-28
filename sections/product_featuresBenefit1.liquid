@@ -1,0 +1,189 @@
+{% comment %} 
+css code is here
+{% endcomment %}
+<style>
+.imgSize{
+    height: 56px;
+    width: 60px;
+}
+
+
+  
+@media (min-width: 776px) {
+    .rtxsize{
+        font-size: 1.5rem;
+    }
+}
+</style>
+{% comment %} 
+css code is end here
+{% endcomment %}
+
+
+{% comment %} 
+html code is start here
+{% endcomment %}
+
+ <section class="px-1 px-lg-4 mt-3">
+
+       
+        <h1 class="text-size text-center mt-4 text-capitalize">{{ section.settings.PRoductHeader }}
+        </h1>
+
+        <div class="my-5 row">
+         
+            <div class="col-md-3 col-12">
+<!--   1st -->
+               {% for block in section.blocks %}
+                 {% if block.type == "right-block" %}
+                <div class="d-flex flex-column justify-content-end align-items-end mb-4">
+                    <img src="{{ block.settings.productimages | img_url:'' }}" class="imgSize mb-4" alt="">
+                    <div class="d-flex flex-column justify-content-end align-items-end mt-4">
+                        <h3 class="text-center  fs-4 rtxsize text-capitalize">
+                           {{ block.settings.textid }}
+                        </h3>
+                        <p class="fs-6   text-end">
+                          {{ block.settings.ptextid }}
+                        </p>
+                    </div>
+            </div>
+                   {% endif %}
+              {% endfor %}
+                   
+              
+              
+    </div>
+          
+           
+
+<!--             middle image -->
+            <div class="col-md-6 col-12 d-flex justify-content-center align-items-center">
+                <img src="{{ section.settings.product_img | img_url:'' }}" class="w-75" alt="" srcset="">
+            </div>
+         
+
+
+     
+            <div class="col-md-3 col-12">
+<!--               4th -->
+             
+             {% for block in section.blocks %}
+                 {% if block.type == "left-block" %}
+                <div class="d-flex flex-column justify-content-start align-items-start mb-4">
+                    <img src="{{ block.settings.productimages2 | img_url:'' }}" class="imgSize" alt="" class="mb-4">
+                    <div class="d-flex flex-column justify-content-start align-items-start mt-4">
+                        <h3 class="text-center fs-4 rtxsize text-capitalize">
+                            {{ block.settings.textid2 }}
+                        </h3>
+                        <p class="fs-6   text-start"> {{ block.settings.ptextid2 }}
+                </p>
+                    </div>
+                </div>
+                    {% endif %}
+              {% endfor %}
+            </div>
+      
+      </div>
+
+       
+        
+    </section>
+
+{% comment %}
+{% endfor %}
+html code is end here
+{% endcomment %}
+
+
+
+
+
+{% schema %}
+{
+   "name":"Product feature benifit1",
+   "settings":[
+        {           
+  "type": "image_picker",
+  "id": "product_img",
+  "label": "image"
+},
+        {           
+  "type": "text",
+  "id": "PRoductHeader",
+  "label": "header",
+  "default":"add product header"
+}
+     
+   ],
+   "blocks":[
+      {
+         "type":"right-block",
+         "name":"right-block",
+         "settings":[
+            {
+               "type":"text",
+               "id":"textid",
+               "label":"title",
+               "default":"add productTitle"
+            },
+            {
+               "type":"richtext",
+               "id":"ptextid",
+               "label":"discription",
+               "default":"<p>add text about product </p>"
+            },
+            {
+               "type":"image_picker",
+               "id":"productimages",
+               "label":"Logo image"
+            }
+         ]
+      },
+      {
+         "type":"left-block",
+         "name":"left-block",
+         "settings":[
+            {
+               "type":"text",
+               "id":"textid2",
+               "label":"title",
+               "default":"add productTitle"
+            },
+            {
+               "type":"richtext",
+               "id":"ptextid2",
+               "label":"discription",
+               "default":"<p>add text about product </p>"
+            },
+            {
+               "type":"image_picker",
+               "id":"productimages2",
+               "label":"Logo image"
+            }
+         ]
+      }
+   ],
+   "presets":[
+      {
+         "name":"Product feature benifit3",
+         
+         "blocks":[
+            {
+               "type":"right-block"
+            },
+           {
+             "type":"left-block"
+           }
+         ]
+      }
+      
+   ]
+}
+
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

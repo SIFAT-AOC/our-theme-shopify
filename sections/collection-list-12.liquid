@@ -1,0 +1,268 @@
+<style>
+ 
+.co-li-12-img-1:hover img {
+  transform: scale(1.2);
+  transition: all 0.9s ease-in-out;
+}
+.co-li-12-img-2:hover img {
+  transform: scale(1.2);
+  transition: all 0.9s ease-in-out;
+  z-index: 1;
+}
+        .co-li-12-img-1{
+            height: 630px;
+            position: relative;
+            overflow: hidden;
+  object-fit: cover;
+        }
+        .co-li-12-img-1 img{
+            object-fit: cover;
+        }
+        .co-li-12-img-2{
+            height: 305px;
+            position: relative;
+            overflow: hidden;
+  object-fit: cover;
+        }
+        .co-li-12-img-2 img{
+            object-fit: cover;
+        }
+        .co-li-12-img-1-ti-1 h3{
+            text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;text-align: center;}
+       .co-li-12-img-1-ti-1 {
+	position: absolute;
+	bottom: 25px;
+	left: 24px;
+	width: 88%;
+	background-color: white;
+	padding: 6px 22px;
+	text-align: center;
+}
+        .co-li-12-img-1-ti-2{
+            position: absolute;
+    bottom: 60px;
+    left: 74px;
+    width: 52%;
+    background-color: white;
+    padding: 6px 22px;
+    text-align: center;
+
+        }
+        
+        .co-li-12-img-1-ti-3{
+            position: absolute;
+    bottom: 25px;
+    left: 74px;
+    width: 52%;
+    background-color: white;
+    padding: 6px 22px;
+    text-align: center;
+
+        }
+        .co-li-12-img-1-ti-3 h3{
+           text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;text-align: center;}
+  
+    @media (max-width: 1280px) {
+   .f-c-2-img {
+    height:245px;
+  }.co-li-12-img-1-ti-3 {
+    position: absolute;
+    bottom: 25px;
+    left: 20px;
+    width: 85%;
+    background-color: white;
+    padding: 6px 22px;
+    text-align: center;
+}
+  }
+  @media (max-width: 992px) {
+    .co-li-12-img-1{
+            height: 390px;
+            position: relative;
+        }
+        .co-li-12-img-2{
+            height: 183px;
+            position: relative;
+        }
+        .co-li-12-img-1-ti-1 {
+    position: absolute;
+    bottom: 17px;
+    left: 83px;
+    width: 59%;
+    background-color: white;
+    padding: 6px 7px;
+    text-align: center;
+}.co-li-12-img-1-ti-3 {
+    position: absolute;
+    bottom: 13px;
+    left: 8px;
+    width: 90%;
+    background-color: white;
+    padding: 6px 4px;
+    text-align: center;
+}.co-li-12-img-1-ti-2 {
+    position: absolute;
+    bottom: 22px;
+    left: 37px;
+    width: 56%;
+    background-color: white;
+    padding: 6px 4px;
+    text-align: center;
+}
+  }
+  @media (max-width: 580px) {
+    .co-li-12-img-1{
+            height: 390px;
+            position: relative;
+        }
+        .co-li-12-img-2{
+            height: 169px;
+            position: relative;
+        }
+        
+        .co-li-12-img-1-ti-1{
+            position: absolute;bottom: 20px;
+    left: 99px;
+    width: 50%;
+    background-color: white;
+    padding: 6px 6px;
+    text-align: center;
+        }
+        .co-li-12-img-1-ti-2{
+            position: absolute;
+    bottom: 60px;
+    left: 74px;
+    width: 52%;
+    background-color: white;
+    padding: 6px 22px;
+    text-align: center;
+
+        }
+        .co-li-12-img-1-ti-2 h3{
+    font-size: 16px;}
+    .co-li-12-img-1-ti-3 {
+    position: absolute;
+    bottom: 15px;
+    left: 9px;
+    width: 90%;
+    background-color: white;
+    padding: 6px 1px;
+    text-align: center;
+}
+    
+  }
+    </style>
+{%- assign collection1 = collections[section.settings.collection1] -%}
+ {%- assign collection2 = collections[section.settings.collection2] -%}
+ {%- assign collection3 = collections[section.settings.collection3] -%}
+ {%- assign collection4 = collections[section.settings.collection4] -%}
+ {%- assign collection5 = collections[section.settings.collection5] -%}
+        <div class="container">
+          <h2 style=" text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;text-align: center;">{{ section.settings.col-li-12-h-t }} </h2>
+            <div class="row d-flex justify-content-center align-items-center">
+                <div class="col-md-6 col-12 mb-mb-0 mb-3">
+                   <a href="">
+                    <div class="co-li-12-img-1">
+                        <img src="{{ collection1.featured_image | img_url:"master"  }}"  class="w-100 h-100" alt="" srcset="">
+                        <div class="co-li-12-img-1-ti-1">
+                            <h3 class="m-0">{{ collection1.title }}</h3>
+                        </div>
+                    </div>
+                   </a>
+                </div>
+                <div class="col-md-6 col-12 mb-mb-0 mb-3 mt-4">
+                    <div class="row d-flex justify-content-center align-items-center">
+                        <div class="col-6 mb-mb-3 mb-4">
+                            <a href="">  <div class="co-li-12-img-2">
+                                <img src="{{ collection2.featured_image | img_url:"master"  }}"  class="w-100 h-100" alt="" srcset="">
+                                <div class="co-li-12-img-1-ti-3">
+                                    <h3 class="m-0">{{ collection2.title }}</h3>
+                                </div>
+                            </div></a>
+                        </div>
+                        <div class="col-6 mb-mb-3 mb-4">
+                            <a href="">  <div class="co-li-12-img-2">
+                                <img src="{{ collection3.featured_image | img_url:"master"  }}"  class="w-100 h-100" alt="" srcset="">
+                                <div class="co-li-12-img-1-ti-3">
+                                     <h3 class="m-0">{{ collection3.title }}</h3>
+                                </div>
+                            </div></a>
+                        </div>
+                        <div class="col-6 mb-mb-3 mb-4">
+                            <a href="">  <div class="co-li-12-img-2">
+                                <img src="{{ collection4.featured_image | img_url:"master"  }}"  class="w-100 h-100" alt="" srcset="">
+                                <div class="co-li-12-img-1-ti-3">
+                                    <h3 class="m-0">{{ collection4.title }}</h3>
+                                </div>
+                            </div></a>
+                        </div>
+                      
+                        <div class="col-6 mb-mb-3 mb-4">
+                          <a href="">  <div class="co-li-12-img-2">
+                            <img src="{{ collection5.featured_image | img_url:"master"  }}"  class="w-100 h-100" alt="" srcset="">
+                            <div class="co-li-12-img-1-ti-3">
+                                 <h3 class="m-0">{{ collection5.title }}</h3>
+                            </div>
+                        </div></a>
+                        </div>
+                    </div>
+                  
+                </div>
+            </div>
+        </div>
+{% schema %}
+  {
+    "name": "Collection-list-12",
+    "settings": [  {
+        "type":"text",
+        "id":"col-li-12-h-t",
+        "default":"Add Section Title",
+        "label":"add text"
+      },
+       {
+            "label": "Collection1",
+            "id": "collection1",
+            "type": "collection"
+          },
+       {
+            "label": "Collection2",
+            "id": "collection2",
+            "type": "collection"
+          },
+       {
+            "label": "Collection3",
+            "id": "collection3",
+            "type": "collection"
+          },
+       {
+            "label": "Collection4",
+            "id": "collection4",
+            "type": "collection"
+          },
+       {
+            "label": "Collection5",
+            "id": "collection5",
+            "type": "collection"
+          }
+      
+    ],
+   "presets": [
+   {
+        "name": "Collection-list-12",
+        "category": "Collection"
+      }
+  ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

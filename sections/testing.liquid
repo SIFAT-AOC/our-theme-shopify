@@ -1,0 +1,60 @@
+{% assign change = section.settings.grid %}
+
+{% case change %}
+  {% when 2 %}
+    {%- assign grid_item_width = 'col-md-6' -%}
+
+  {% when 3 %}
+    {%- assign grid_item_width = 'col-md-3' -%}
+{% endcase %}
+
+<div class="container">
+  <div class="row ">
+  
+    <div class="{{ grid_item_width }} bg-danger">
+      <h1>Helllo Fahim</h1>
+    </div>
+      <div class="{{ grid_item_width }} bg-danger">
+      <h1>Helllo Fahim</h1>
+    </div>
+      <div class="{{ grid_item_width }} bg-danger">
+      <h1>Helllo Fahim</h1>
+    </div>
+
+</div>
+
+{% schema %}
+{
+   "name":"Test text",
+   "settings":[
+
+        {
+  "type": "text",
+  "id": "desktopid",
+  "label": "header"
+},
+{
+        "type": "range",
+        "id": "grid",
+        "label": "Collections per row",
+        "min": 2,
+        "max": 6,
+        "step": 1,
+        "default": 3
+      }
+
+   ],
+    "presets":
+    [
+      {
+        "name":"Test"
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

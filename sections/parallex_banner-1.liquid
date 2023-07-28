@@ -1,0 +1,141 @@
+<div class="parallex1 mt-5 mb-5"  style="background-image: url({{ section.settings.parallex-image1  | img_url: '' }});">
+        <!-- <img src="./product img1.png" alt=""> -->
+        <div class="content">
+            <h2 class="heading1 mt-2" style="color:{{section.settings.designColor}};" >
+            {{ section.settings.parallextHeading1 }}  
+            </h2>
+            <h1 class="heading2 " style="color:{{section.settings.offerColor}};" >   {{ section.settings.parallextHeading2 }}  </h1>
+            <p class="description" style="color:{{section.settings.descriptionColor}};" >
+                {{ section.settings.parallexDescrbtion1 }}  
+            </p>
+    </div>
+    </div>
+
+{% schema %}
+  {
+    "name": "parallex-banner1",
+    "settings": [
+          {
+        "type": "image_picker",
+        "id": "parallex-image1",
+        "label": "Custom Background Image"
+      },
+      {
+      "type":"text",
+        "id":"parallextHeading1",
+        "label":"add heading",
+        "default":"Add Heading Text"
+      },    
+      {
+      "type":"text",
+        "id":"parallextHeading2",
+        "label":"add heading",
+        "default":"Add Heading Text"
+      },    
+      {
+      "type":"text",
+        "id":"parallexDescrbtion1",
+        "label":"add heading",
+        "default":"Add Heading Text"
+      },
+      {
+        "type": "color",
+        "id": "designColor",
+        "label": "Design",
+        "default": "#000000"
+      },
+      {
+        "type": "color",
+        "id": "offerColor",
+        "label": "Offer",
+        "default": "#000000"
+      },
+      {
+        "type": "color",
+        "id": "descriptionColor",
+        "label": "Description",
+        "default": "#000000"
+      }
+    ],
+    "presets":[
+      {
+      "name":"parallex-banner1"
+      }
+    
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+  
+.parallex1{
+/*     background-image:url('{{ section.settings.parallex-image1 }}'); */
+    background-size: cover;
+    display: table;
+    background-position: center;
+    height: 80vh;
+    width: 100%;
+    background-attachment: fixed;
+    
+    position: relative;
+}
+.heading1{
+    font-size: 3vw;
+    color:white;
+}
+.heading2{
+    font-size: 5vw;
+  color:white;
+}
+.description {
+    font-size: 2vw;
+  color:white;
+}
+.content{
+    display: table-cell;
+    position: absolute;
+    left: 5%;
+    top: 24%;
+    
+}
+@media screen and (max-width: 980px){
+    .parallex1{
+/*         background-image: url("./product\ img1.png"); */
+        background-size: cover;
+        display: table;
+        background-position: center;
+        height: 70vh;
+        width: 100%;
+        background-attachment: fixed;
+        position: relative;
+    }
+    .heading1{
+        font-size: 6vw;
+      color:white;
+    }
+    .heading2{
+        font-size: 8vw;
+      color:white;
+    }
+    .description {
+      color:white;
+        font-size: 5vw;
+    }
+}
+@media screen and (max-width: 768px){
+    .parallex1{
+/*         background-image: url("./product\ img1.png"); */
+        background-size: cover;
+        display: table;
+        background-position: center;
+        height: 50vh;
+        width: 100%;
+        background-attachment: fixed;
+        position: relative;
+    }
+}
+
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

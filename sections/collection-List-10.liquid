@@ -1,0 +1,109 @@
+<style>
+      .c-l-10-img{
+            height: 320px;
+  overflow: hidden;
+  border-radius: 5%;
+  object-fit: cover;
+  transition: all 0.9s ease-in;
+        }
+
+.c-l-10-img:hover img {
+  transform: scale(1.2);
+  transition: all 0.9s ease-in;
+}
+.c-l-10-img img{
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    .c-l-10-img {
+    height: 200px;
+    overflow: hidden;
+    border-radius: 5%;
+    object-fit: cover;
+    transition: all 0.9s ease-in;
+}
+    }
+    </style>
+   
+   
+   <div class="container my-md-4 my-3">
+        <h2 style=" text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;text-align: center;">{{ section.settings.col-li-10-h-t }} </h2>
+        <div class="row d-flex justify-content-center align-items-center">
+          {% for block in section.blocks %}
+            {%- assign collection = collections[block.settings.collection] -%}
+            {% case block.settings.grid2 %}
+  {% when 3 %}
+    {%- assign colsize2 = 'col-3' -%}
+  {% when 6 %}
+    {%- assign colsize2 = 'col-6' -%}
+  {% when 12 %}
+    {%- assign colsize2 = 'col-12' -%}
+{% endcase %}
+            <div class="col-md-4 {{ colsize2 }} mb-md-0 mb-3">
+                <div class="c-l-10-img">
+                    <img src="{{ collection.featured_image | img_url:"master" }}" class="w-100 h-100" alt="">
+                </div>
+            </div>
+           {% endfor %}
+        </div>
+    </div>
+
+{% schema %}
+  {
+    "name": "collection-list-10",
+    "settings": [
+      {
+        "type":"text",
+        "id":"col-li-10-h-t",
+        "default":"Add Section Title",
+        "label":"add text"
+      }
+    ],
+    
+   "blocks": [
+      {
+        "type": "Collection-List-10",
+        "name": "Collection",
+        "settings": [
+          {
+            "label": "Collection",
+            "id": "collection",
+            "type": "collection"
+          },
+    {
+        "type": "range",
+        "id": "grid2",
+        "label": "Select Column for mobile device",
+        "min": 3,
+        "max": 12,
+        "step": 1,
+        "default": 6
+      }
+        ]
+      }
+    ],
+   "presets": [
+   {
+        "name": "Collection-list-10",
+        "category": "Collection",
+        "blocks": [
+          {
+            "type": "Collection-List-10"
+          }
+
+        ]
+      }
+  ]
+
+
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

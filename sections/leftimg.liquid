@@ -1,0 +1,60 @@
+<style>
+  .banner-text{
+    font-size: 30px;
+    font-weight: 660;
+ 
+}
+  
+</style>
+
+ <div class=" p-3  container my-md-3 my-2">
+        <div class="row ">
+            <div class="col-md-6 col-12 my-md-5 order-last order-lg-first order-md-first  mb-sm-4 d-flex flex-column justify-content-center align-items-center">
+                <h1 class=" banner-text mb-2">
+                    {{ section.settings.Right_header }}
+                </h1>
+                <p class="text-justify mt-md-3 mt-4 fs-3">
+                    {{ section.settings.Right_description }}</p>
+               
+            </div>
+            <div class="col-md-6 col-12 order-first order-lg-last order-md-last d-flex flex-column  justify-content-center align-items-center ">
+                <img src="{{ section.settings.RightImage | img_url:'' }}" class="w-100 img-fluid" alt="" srcset="">
+            </div>
+        </div>
+    </div>
+
+
+
+
+{% schema %}
+{
+   "name":"Left image",
+   "settings":[
+        {           
+  "type": "image_picker",
+  "id": "RightImage",
+  "label": "image"
+   
+},
+        {           
+  "type": "text",
+  "id": "Right_header",
+  "label": "header",
+  "default":"add product header"
+},
+        {           
+  "type": "text",
+  "id": "Right_description",
+  "label": "description",
+  "default":"add product description"
+}
+     
+   ],
+    "presets":
+    [
+      {
+        "name":"left Image With RightText"
+      }
+    ]
+  }
+{% endschema %}
